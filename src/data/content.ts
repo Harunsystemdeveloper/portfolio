@@ -161,10 +161,14 @@ export const projects: Project[] = [
   },
   {
     title: "Rekryo",
-    role: "Grundare & Lead Developer",
-    description:
-      "AI-driven jobbmatchningsplattform för den svenska arbetsmarknaden. CV-uppladdning med AI-analys, jobbmatchning med poäng, kompetensgapsanalys, generering av intervjufrågor och en talangpool där rekryterare hittar kandidater som valt att synas. Agentarkitektur med tool-use-loop för jobbsökning och rankning.",
-    tags: ["Next.js", "TypeScript", "Tailwind", "Supabase (RLS)", "Claude Sonnet"],
+    role: "Founder & Lead Developer",
+    period: "2025 – Pågående",
+    bullets: [
+      "Bygger på fritiden en AI-driven rekryteringsplattform som matchar jobbsökare med tjänster via automatisk CV-analys och matchningspoäng.",
+      "Bygger hela plattformen helt med hjälp av olika AI-verktyg från kodgenerering till design och testning.",
+      "Plattformen ger rekryterare verktyg för kandidatsökning, intervjubokning och pipelinehantering med målet att göra kvalitativ rekrytering tillgänglig för alla företag oavsett storlek.",
+    ],
+    ongoing: true,
     links: [{ label: "Besök", href: "[LÄNK]" }],
   },
   {
