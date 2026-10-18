@@ -35,10 +35,11 @@ export const navLinks = [
   { href: "#kontakt", label: "Kontakt" },
 ];
 
+// Profiltexten från CV:t
 export const about = [
-  "Jag är utbildad systemutvecklare från TUC Yrkeshögskola med bakgrund inom .NET, molnet (Azure) och AI.",
-  "På fritiden bygger jag AI-integrerade verktyg och lär mig aktivt AI-agenter och MCP genom ett eget strukturerat program där varje steg blir ett portfolioprojekt.",
-  "Mitt fokus ligger på lösningar som faktiskt går att använda i verkligheten – inte demos som stannar i en notebook.",
+  "Systemutvecklare med starkt tekniskt fokus och praktisk erfarenhet av .NET, Cloud och AI.",
+  "Jag brinner för tech och älskar att bygga smarta lösningar som gör verklig skillnad.",
+  "Just nu söker jag en tjänst inom systemutveckling och jag är alltid hungrig på att lära mig nytt.",
 ];
 
 export type Experience = {
