@@ -14,7 +14,7 @@ export default function Experience() {
 
   return (
     <Section id="erfarenhet" eyebrow="Arbetslivserfarenhet" title="Resan hittills">
-      <ol ref={listRef} className="relative ml-2 space-y-10 sm:ml-4">
+      <ol ref={listRef} className="relative ml-1.5 space-y-6 sm:ml-4 sm:space-y-10">
         {/* Bakgrundslinje + linje som ritas upp i takt med scroll */}
         <span aria-hidden className="absolute top-2 bottom-2 left-0 w-px bg-line" />
         <motion.span
@@ -24,14 +24,14 @@ export default function Experience() {
         />
 
         {experiences.map((item, i) => (
-          <Reveal as="li" key={`${item.company}-${i}`} delay={0.05} className="relative pl-8 sm:pl-12">
+          <Reveal as="li" key={`${item.company}-${i}`} delay={0.05} className="relative pl-6 sm:pl-12">
             <span
               aria-hidden
               className={`absolute top-1.5 -left-[7px] h-[15px] w-[15px] rounded-full border-2 ${
                 item.current ? "border-gold bg-gold shadow-[0_0_14px_var(--glow-gold)]" : "border-cyan bg-bg"
               }`}
             />
-            <div className="rounded-2xl border border-line bg-surface p-5 backdrop-blur transition hover:border-gold/40 sm:p-6">
+            <div className="rounded-2xl border border-line bg-surface p-4 backdrop-blur transition hover:border-gold/40 sm:p-6">
               <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <h3 className="font-display text-lg font-semibold sm:text-xl">
                   {item.company}
@@ -48,9 +48,9 @@ export default function Experience() {
                   <span className="rounded-full bg-gold/15 px-2.5 py-0.5 text-xs font-medium">Pågående</span>
                 )}
               </p>
-              <ul className="mt-3 space-y-2 text-muted">
+              <ul className="mt-3 space-y-2 text-[15px] text-muted sm:text-base">
                 {item.bullets.map((bullet) => (
-                  <li key={bullet} className="flex gap-3 leading-relaxed">
+                  <li key={bullet} className="flex gap-2.5 leading-relaxed sm:gap-3">
                     <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan" />
                     <span>{bullet}</span>
                   </li>
