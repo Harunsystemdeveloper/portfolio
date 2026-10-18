@@ -29,7 +29,6 @@ npm run dev
 
 - Platshållare står inom hakparenteser, t.ex. `[DIN E-POST]` och `[GITHUB-LÄNK]`. Sök efter `[` i filen för att hitta allt som är kvar att fylla i.
 - Länkar som fortfarande är platshållare visas som text i stället för trasiga länkar.
-- **CV:** lägg din CV-fil som `public/cv.pdf`. Knappen "Ladda ner CV" pekar dit.
 - Nytt projekt: lägg till ett objekt i listan `projects`. Med `ongoing: true` får kortet en "Pågående"-badge.
 
 ## Struktur

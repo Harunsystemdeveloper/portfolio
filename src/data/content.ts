@@ -20,8 +20,6 @@ export const person = {
   pitch: "Jag brinner för tech och älskar att bygga smarta lösningar som gör verklig skillnad.",
   status: "Söker tjänst inom systemutveckling",
   location: "Linköping · Östergötland",
-  // Lägg din CV-fil i /public/cv.pdf
-  cvUrl: "/cv.pdf",
   email: "Harunali2002@icloud.com",
   linkedin: "https://www.linkedin.com/in/harun-a-90a835329",
   github: "https://github.com/Harunsystemdeveloper",

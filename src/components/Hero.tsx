@@ -54,14 +54,6 @@ export default function Hero() {
             >
               Kontakta mig
             </a>
-            <a
-              href={person.cvUrl}
-              download
-              className="inline-flex items-center gap-2 px-2 py-3 text-sm font-medium text-muted underline-offset-4 transition hover:text-gold hover:underline"
-            >
-              <Icon name="download" width={18} height={18} />
-              Ladda ner CV (PDF)
-            </a>
           </div>
         </div>
       </div>
