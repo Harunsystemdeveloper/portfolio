@@ -33,7 +33,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       ref={ref}
       onPointerMove={onPointerMove}
       onPointerLeave={onPointerLeave}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface p-6 backdrop-blur transition-[transform,border-color] duration-300 ease-out [transform:perspective(900px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))] hover:border-gold/40 sm:p-7"
+      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface p-5 backdrop-blur transition-[transform,border-color] duration-300 ease-out [transform:perspective(900px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))] hover:border-gold/40 sm:p-7"
     >
       {/* Glöd som följer musen */}
       <div
@@ -65,9 +65,9 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div className="relative mt-3 flex-1 text-muted">
         {project.description && <p className="leading-relaxed">{project.description}</p>}
         {project.bullets && (
-          <ul className="mt-3 space-y-2">
+          <ul className="mt-3 space-y-2 text-[15px] sm:text-base">
             {project.bullets.map((bullet) => (
-              <li key={bullet} className="flex gap-3 leading-relaxed">
+              <li key={bullet} className="flex gap-2.5 leading-relaxed sm:gap-3">
                 <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan" />
                 <span>{bullet}</span>
               </li>
