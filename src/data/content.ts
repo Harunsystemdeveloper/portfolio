@@ -137,8 +137,10 @@ export const experiences: Experience[] = [
 export type Project = {
   title: string;
   role?: string;
-  description: string;
-  tags: string[];
+  period?: string;
+  description?: string;
+  bullets?: string[];
+  tags?: string[];
   ongoing?: boolean;
   links: { label: string; href: string }[];
 };

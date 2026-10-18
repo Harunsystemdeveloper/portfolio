@@ -60,15 +60,31 @@ export default function ProjectCard({ project, featured }: { project: Project; f
       <h3 className={`relative mt-4 font-display font-semibold ${featured ? "text-2xl sm:text-3xl" : "text-xl"}`}>
         {project.title}
       </h3>
-      <p className="relative mt-3 flex-1 leading-relaxed text-muted">{project.description}</p>
+      {project.period && <p className="relative mt-1 text-sm text-muted">{project.period}</p>}
 
-      <ul className="relative mt-5 flex flex-wrap gap-2" aria-label="Teknik">
-        {project.tags.map((tag) => (
-          <li key={tag} className="rounded-md border border-line bg-bg-soft/60 px-2 py-1 font-mono text-xs text-fg/80">
-            {tag}
-          </li>
-        ))}
-      </ul>
+      <div className="relative mt-3 flex-1 text-muted">
+        {project.description && <p className="leading-relaxed">{project.description}</p>}
+        {project.bullets && (
+          <ul className="mt-3 space-y-2">
+            {project.bullets.map((bullet) => (
+              <li key={bullet} className="flex gap-3 leading-relaxed">
+                <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan" />
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+
+      {project.tags && project.tags.length > 0 && (
+        <ul className="relative mt-5 flex flex-wrap gap-2" aria-label="Teknik">
+          {project.tags.map((tag) => (
+            <li key={tag} className="rounded-md border border-line bg-bg-soft/60 px-2 py-1 font-mono text-xs text-fg/80">
+              {tag}
+            </li>
+          ))}
+        </ul>
+      )}
 
       <div className="relative mt-6 flex flex-wrap gap-4">
         {project.links.map((link) =>
