@@ -112,10 +112,14 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    role: "Utvecklare",
+    role: "Systemutvecklare",
     company: "Vertel AB",
-    period: "[PERIOD]",
-    bullets: ["Utveckling av Python-moduler för Odoo (ERP)."],
+    period: "Mar – Jun 2025",
+    location: "Linköping",
+    bullets: [
+      "Tog ägarskap över moduler och automatiseringsflöden i Odoo från kravanalys till driftsatt lösning med Python och XML.",
+      "Integrerade AI-verktyg i arbetsflödet och höjde leveranstakten och kvaliteten.",
+    ],
   },
   {
     role: "[FYLL I ROLL]",
