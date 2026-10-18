@@ -63,11 +63,18 @@ export type Experience = {
 // Senaste först
 export const experiences: Experience[] = [
   {
-    role: "IT-konsult",
-    company: "Castra",
-    period: "Pågående",
+    role: "IT-Konsult · IT-Supporttekniker",
+    company: "Castra AB",
+    context: "Region Östergötland",
+    period: "Juni 2026 – Pågående",
+    location: "Linköping",
     current: true,
-    bullets: ["Uppdrag hos Region Östergötland, Centrum för IT & Medicinsk Teknik, som IT-supporttekniker."],
+    bullets: [
+      "Anställd som konsult på Castra med uppdrag hos Region Östergötland, avdelningen Centrum för IT & Medicinsk Teknik.",
+      "Första kontakten för regionens medarbetare vid tekniska problem och frågor.",
+      "Felsöker, installerar och ger support på hårdvara, mjukvara och nätverk så att vård- och administrativ personal har tekniken som krävs för sitt dagliga arbete.",
+      "Skapar och följer upp supportärenden i ärendehanteringssystem, vilket utvecklar min kommunikations- och bemötandeförmåga.",
+    ],
   },
   {
     role: "AI-strateg",
