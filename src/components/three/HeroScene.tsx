@@ -175,12 +175,12 @@ const SHAPES = [
   { kind: "ico", pos: [-5.6, 0.4, -4], color: "#38d6f5" },
 ] as const;
 
-function FloatingShapes({ count }: { count: number }) {
+function FloatingShapes({ count, spread }: { count: number; spread: number }) {
   return (
     <>
       {SHAPES.slice(0, count).map((s, i) => (
         <Float key={i} speed={1 + (i % 3) * 0.3} rotationIntensity={0.8} floatIntensity={0.9}>
-          <mesh position={s.pos as unknown as [number, number, number]} scale={0.5}>
+          <mesh position={[s.pos[0] * spread, s.pos[1], s.pos[2]]} scale={0.5}>
             {s.kind === "torus" && <torusGeometry args={[0.6, 0.12, 12, 40]} />}
             {s.kind === "ico" && <icosahedronGeometry args={[0.6, 0]} />}
             {s.kind === "box" && <boxGeometry args={[0.8, 0.8, 0.8]} />}
@@ -276,14 +276,14 @@ function Composition({ lowPower, interaction, light }: Omit<Props, "active">) {
   const wide = viewport.aspect > 1.1;
 
   // Desktop: trappan till höger om texten. Mobil: mindre och längre ned.
-  const groupPos: [number, number, number] = wide ? [viewport.width * 0.2, 0, 0] : [0, -1.6, 0];
-  const groupScale = wide ? Math.min(1, viewport.width / 16) : Math.min(0.6, viewport.width / 9);
+  const groupPos: [number, number, number] = wide ? [viewport.width * 0.2, 0, 0] : [0, -1.2, 0];
+  const groupScale = wide ? Math.min(1, viewport.width / 16) : Math.min(0.7, viewport.width / 5.5);
 
   return (
     <>
       <CameraRig interaction={interaction} />
       <Particles count={lowPower ? 220 : 650} light={light} />
-      <FloatingShapes count={lowPower ? 3 : 6} />
+      <FloatingShapes count={lowPower ? 3 : 6} spread={wide ? 1 : 0.4} />
       <group position={groupPos} scale={groupScale} rotation={[0, -0.35, 0]}>
         <GrowthSteps steps={steps} />
         <Rocket steps={steps} trailLength={lowPower ? 8 : 16} />
