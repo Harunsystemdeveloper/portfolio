@@ -8,7 +8,7 @@
 export const site = {
   // Din domän (köpt på Namecheap, kopplad via Vercel)
   url: "https://harunsoftwaretech.com",
-  title: "Harun Ali – Systemutvecklare inom .NET, Cloud & AI",
+  title: "Harun Ali – Systemutvecklare inom .NET, C#, Cloud & AI",
   description:
     "Systemutvecklare som bygger praktiska AI-lösningar för den svenska marknaden – LLM-integrationer, AI-agenter, MCP och molninfrastruktur.",
   locale: "sv_SE",
@@ -16,7 +16,7 @@ export const site = {
 
 export const person = {
   name: "Harun Ali",
-  title: "Systemutvecklare – .NET, Cloud & AI",
+  title: "Systemutvecklare – .NET, C#, Cloud & AI",
   pitch:
     "Jag bygger praktiska AI-lösningar för den svenska marknaden – från LLM-integrationer och AI-agenter till molninfrastruktur.",
   location: "Linköping / Stockholm",
