@@ -8,20 +8,11 @@ export default function Skills() {
     <Section id="kompetenser" eyebrow="Kompetenser" title="Verktygslådan">
       <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {skillGroups.map((group, gi) => {
-          const learning = "learning" in group && group.learning;
           return (
             <Reveal as="li" key={group.title} delay={(gi % 3) * 0.07}>
-              <div
-                className={`h-full rounded-2xl border p-6 backdrop-blur ${
-                  learning ? "border-dashed border-cyan/40 bg-cyan/5" : "border-line bg-surface"
-                }`}
-              >
+              <div className="h-full rounded-2xl border border-line bg-surface p-6 backdrop-blur">
                 <h3 className="flex items-center gap-3 font-display text-lg font-semibold">
-                  <span
-                    className={`grid h-10 w-10 place-items-center rounded-xl ${
-                      learning ? "bg-cyan/15 text-cyan" : "bg-gold/15 text-gold"
-                    }`}
-                  >
+                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-gold/15 text-gold">
                     <Icon name={group.icon} />
                   </span>
                   {group.title}

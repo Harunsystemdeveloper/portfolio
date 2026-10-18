@@ -200,12 +200,6 @@ export const skillGroups = [
     icon: "tool",
     skills: ["Python", "Odoo ERP", "Git", "LangGraph", "pytest", "Agile / Scrum"],
   },
-  {
-    title: "Lär mig just nu",
-    icon: "rocket",
-    skills: ["Docker", "GitHub Actions", "Terraform / Bicep"],
-    learning: true,
-  },
 ] as const;
 
 // Egna motton som visas mellan sektionerna
