@@ -171,13 +171,6 @@ export const projects: Project[] = [
     ongoing: true,
     links: [{ label: "Besök", href: "[LÄNK]" }],
   },
-  {
-    title: "Guldkassan.se",
-    description:
-      "Företagswebb som ersatte manuell kundhantering via DM med ett strukturerat kontaktflöde.",
-    tags: ["WordPress", "Elementor"],
-    links: [{ label: "Besök", href: "[LÄNK]" }],
-  },
 ];
 
 export const skillGroups = [
