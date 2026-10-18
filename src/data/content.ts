@@ -22,8 +22,8 @@ export const person = {
   location: "Linköping · Östergötland",
   // Lägg din CV-fil i /public/cv.pdf
   cvUrl: "/cv.pdf",
-  email: "[DIN E-POST]",
-  linkedin: "[LÄNK TILL LINKEDIN]",
+  email: "Harunali2002@icloud.com",
+  linkedin: "https://www.linkedin.com/in/harun-a-90a835329",
   github: "https://github.com/Harunsystemdeveloper",
 };
 
