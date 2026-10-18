@@ -6,7 +6,7 @@ import Icon from "./ui/Icon";
 
 const MAX_TILT = 6; // grader
 
-export default function ProjectCard({ project, featured }: { project: Project; featured?: boolean }) {
+export default function ProjectCard({ project }: { project: Project }) {
   const ref = useRef<HTMLElement>(null);
 
   // Uppdaterar CSS-variabler direkt – ingen omrendering av React vid musrörelse
@@ -57,7 +57,7 @@ export default function ProjectCard({ project, featured }: { project: Project; f
         )}
       </div>
 
-      <h3 className={`relative mt-4 font-display font-semibold ${featured ? "text-2xl sm:text-3xl" : "text-xl"}`}>
+      <h3 className="relative mt-4 font-display text-2xl font-semibold">
         {project.title}
       </h3>
       {project.period && <p className="relative mt-1 text-sm text-muted">{project.period}</p>}
