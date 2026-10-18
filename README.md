@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Harun Ali – Portfolio
 
-## Getting Started
+Personlig portfolio byggd med Next.js (App Router), TypeScript, Tailwind CSS, React Three Fiber och Framer Motion.
 
-First, run the development server:
+Live: https://harunsoftwaretech.com
+
+## Kör lokalt
+
+Kräver Node.js 20 eller senare.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Öppna sedan http://localhost:3000 i webbläsaren. Sidan laddas om automatiskt när du sparar en fil.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Övriga kommandon:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Kommando        | Vad det gör                                 |
+| --------------- | ------------------------------------------- |
+| `npm run build` | Bygger en produktionsversion                |
+| `npm run start` | Kör produktionsversionen (efter `build`)    |
+| `npm run lint`  | Kontrollerar koden med ESLint               |
 
-## Learn More
+## Ändra innehåll
 
-To learn more about Next.js, take a look at the following resources:
+**Allt innehåll finns i [`src/data/content.ts`](src/data/content.ts)**: namn, pitch, om mig, erfarenheter, projekt, kompetenser, kontaktuppgifter och motton. Du behöver inte röra komponenterna.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Platshållare står inom hakparenteser, t.ex. `[DIN E-POST]` och `[GITHUB-LÄNK]`. Sök efter `[` i filen för att hitta allt som är kvar att fylla i.
+- Länkar som fortfarande är platshållare visas som text i stället för trasiga länkar.
+- **CV:** lägg din CV-fil som `public/cv.pdf`. Knappen "Ladda ner CV" pekar dit.
+- Nytt projekt: lägg till ett objekt i listan `projects`. Med `ongoing: true` får kortet en "Pågående"-badge.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Struktur
 
-## Deploy on Vercel
+```
+src/
+├─ app/
+│  ├─ layout.tsx            Typsnitt, SEO-metadata och temaskript
+│  ├─ page.tsx              Sätter ihop sektionerna
+│  ├─ globals.css           Färger (mörkt/ljust läge) och animationer
+│  ├─ icon.svg              Favicon
+│  └─ opengraph-image.tsx   Delningsbild, genereras vid build
+├─ components/
+│  ├─ three/                3D-scenen i hero (laddas först när sidan är klar)
+│  ├─ ui/                   Återanvändbara delar (Reveal, Section, Motto, Icon)
+│  └─ *.tsx                 En komponent per sektion
+├─ data/content.ts          ALLT innehåll
+└─ lib/                     Hjälp-hooks (enhetsinfo, tema)
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Prestanda och tillgänglighet
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 3D-scenen laddas med `dynamic(..., { ssr: false })` när webbläsaren är ledig. Fram till dess visas en statisk SVG.
+- Upplösningen är begränsad (dpr max 1,5) och scenen pausas när den inte syns.
+- På mobil och svagare datorer används en förenklad scen med färre objekt.
+- Med `prefers-reduced-motion` visas bara den statiska versionen och animationerna stängs av.
+
+## Deploya på Vercel
+
+1. Gå till [vercel.com](https://vercel.com) och logga in med GitHub.
+2. Välj **Add New → Project** och importera repot `Harunsystemdeveloper/portfolio`.
+3. Vercel känner igen Next.js automatiskt. Behåll standardinställningarna och klicka på **Deploy**.
+4. Varje `git push` till `main` deployas sedan automatiskt.
+
+### Koppla domänen från Namecheap
+
+1. I Vercel: öppna projektet → **Settings → Domains** → lägg till `harunsoftwaretech.com` och `www.harunsoftwaretech.com`.
+2. I Namecheap: **Domain List → Manage → Advanced DNS**. Ta bort befintliga standardposter för `@` och `www` (t.ex. "URL Redirect" och "CNAME parkingpage"), och lägg sedan till:
+
+   | Typ   | Host  | Värde                  |
+   | ----- | ----- | ---------------------- |
+   | A     | `@`   | `76.76.21.21`          |
+   | CNAME | `www` | `cname.vercel-dns.com` |
+
+   Kontrollera värdena mot det som Vercel visar under Domains, eftersom Vercel ibland anger projektspecifika värden.
+3. Det kan ta från några minuter upp till ett par timmar innan DNS har uppdaterats. Vercel ordnar HTTPS-certifikatet automatiskt.
+
+Domänen är redan inlagd som `site.url` i `src/data/content.ts`. Den används för länkarna i Open Graph-bilden.
