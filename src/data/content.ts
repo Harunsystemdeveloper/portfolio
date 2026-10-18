@@ -172,12 +172,6 @@ export const projects: Project[] = [
     links: [{ label: "Besök", href: "[LÄNK]" }],
   },
   {
-    title: "Svensk textklassificerare",
-    description: "Textklassificering på svenska med scikit-learn.",
-    tags: ["Python", "scikit-learn"],
-    links: [{ label: "GitHub", href: "[GITHUB-LÄNK]" }],
-  },
-  {
     title: "Guldkassan.se",
     description:
       "Företagswebb som ersatte manuell kundhantering via DM med ett strukturerat kontaktflöde.",
