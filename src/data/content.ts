@@ -77,19 +77,23 @@ export const experiences: Experience[] = [
     ],
   },
   {
+    role: "Cloud Engineer",
+    company: "Åhlens AB",
+    context: "IT & Infrastructure",
+    period: "Dec 2025 – Maj 2026",
+    location: "Stockholm",
+    bullets: [
+      "Byggde och förvaltade skalbara molnlösningar i Microsoft Azure för en av Sveriges största detaljhandlare.",
+      "Utvecklade och underhöll .NET-baserade system i C# med fokus på driftsäkerhet och prestanda.",
+      "Ansvarade för säkerhet, behörigheter och åtkomstkontroll samt genomförde kostnadsoptimeringar i infrastrukturen.",
+    ],
+  },
+  {
     role: "AI-strateg",
     company: "Guldkassan AB",
     period: "Juli 2025 – maj 2026",
     bullets: [
       "Byggde bland annat Guldkassan.se (WordPress/Elementor), som ersatte manuell hantering av Instagram-DM med ett strukturerat kontaktformulär.",
-    ],
-  },
-  {
-    role: "Cloud Engineer (LIA + examensarbete)",
-    company: "Åhlens AB – IT & Infrastruktur",
-    period: "[PERIOD]",
-    bullets: [
-      "Examensarbete om en AI Feature Warehouse i Azure Synapse Analytics. Arbetade även med IT-säkerhet: MFA/Microsoft Authenticator, arbetsplatssäkerhet och riskanalys.",
     ],
   },
   {
