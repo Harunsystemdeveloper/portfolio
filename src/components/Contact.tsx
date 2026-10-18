@@ -34,7 +34,7 @@ export default function Contact() {
       <div className="grid gap-10 lg:grid-cols-5">
         <Reveal className="space-y-4 lg:col-span-2">
           <p className="text-lg leading-relaxed text-muted">
-            Letar du efter en utvecklare inom AI, LLM-integration eller moln? Hör av dig – jag svarar gärna.
+            Söker du en systemutvecklare inom .NET, C#, Cloud eller AI? Hör av dig – jag svarar gärna.
           </p>
           <ul className="space-y-3 pt-2">
             {channels.map((c) => {
