@@ -1,6 +1,11 @@
 "use client";
 
-/** Årtalet räknas ut i webbläsaren så att sidan kan förrenderas statiskt. */
+import { useSyncExternalStore } from "react";
+
+const subscribe = () => () => {};
+
+/** Årtalet läses i webbläsaren så att sidan kan förrenderas statiskt. */
 export default function CurrentYear() {
-  return <span suppressHydrationWarning>{new Date().getFullYear()}</span>;
+  const year = useSyncExternalStore(subscribe, () => new Date().getFullYear(), () => null);
+  return <span>{year}</span>;
 }
