@@ -10,7 +10,7 @@ export const site = {
   url: "https://harunsoftwaretech.com",
   title: "Harun Ali – Systemutvecklare inom .NET, C#, Cloud & AI",
   description:
-    "Systemutvecklare som bygger praktiska AI-lösningar för den svenska marknaden – LLM-integrationer, AI-agenter, MCP och molninfrastruktur.",
+    "Systemutvecklare med starkt tekniskt fokus och praktisk erfarenhet av .NET, C#, Microsoft Azure och AI – LLM, AI-agenter och MCP-servrar.",
   locale: "sv_SE",
 };
 

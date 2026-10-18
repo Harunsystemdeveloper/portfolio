@@ -30,7 +30,7 @@ export default function Image() {
           <div style={{ fontSize: 84, fontWeight: 700, marginTop: 16 }}>{person.name}</div>
           <div style={{ fontSize: 40, color: "#f5b942", marginTop: 12 }}>{person.title}</div>
           <div style={{ fontSize: 26, color: "#9ba5bd", marginTop: 28, lineHeight: 1.4 }}>
-            LLM-integration · AI-agenter · MCP · Azure
+            .NET · C# · Cloud · AI
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "flex-end", gap: 14, height: 420 }}>

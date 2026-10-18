@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   title: site.title,
   description: site.description,
   authors: [{ name: person.name }],
-  keywords: ["systemutvecklare", "AI-utvecklare", "LLM", "AI-agenter", "MCP", ".NET", "Azure", "Next.js"],
+  keywords: ["systemutvecklare", ".NET", "C#", "Azure", "Cloud", "AI", "LLM", "AI-agenter", "MCP"],
   openGraph: {
     type: "website",
     locale: site.locale,
