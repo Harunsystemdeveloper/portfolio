@@ -42,6 +42,13 @@ export const about = [
   "Just nu söker jag en tjänst inom systemutveckling och jag är alltid hungrig på att lära mig nytt.",
 ];
 
+export const aboutFacts = [
+  { label: "Utbildning", value: "Systemutvecklare .NET, TUC Yrkeshögskola (aug 2024 – maj 2026)" },
+  { label: "Språk", value: "Svenska och engelska (flytande), spanska (grundläggande)" },
+  { label: "Intressen", value: "Sport & träning, entreprenörskap" },
+  { label: "Plats", value: person.location },
+];
+
 export type Experience = {
   role: string;
   company: string;

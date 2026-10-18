@@ -1,13 +1,6 @@
-import { about, person } from "@/data/content";
+import { about, aboutFacts } from "@/data/content";
 import Reveal from "./ui/Reveal";
 import Section from "./ui/Section";
-
-const facts = [
-  { label: "Utbildning", value: "Systemutvecklare, TUC Yrkeshögskola" },
-  { label: "Bakgrund", value: ".NET, Azure & AI" },
-  { label: "Fokus just nu", value: "LLM-integration, AI-agenter & MCP" },
-  { label: "Plats", value: person.location },
-];
 
 export default function About() {
   return (
@@ -22,7 +15,7 @@ export default function About() {
         </div>
         <Reveal delay={0.15} className="md:col-span-2">
           <dl className="divide-y divide-line rounded-2xl border border-line bg-surface p-2 backdrop-blur">
-            {facts.map((fact) => (
+            {aboutFacts.map((fact) => (
               <div key={fact.label} className="px-4 py-4">
                 <dt className="text-xs tracking-wider text-cyan uppercase">{fact.label}</dt>
                 <dd className="mt-1 font-medium">{fact.value}</dd>
