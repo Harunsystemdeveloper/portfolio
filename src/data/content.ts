@@ -89,6 +89,18 @@ export const experiences: Experience[] = [
     ],
   },
   {
+    role: "Cloud Engineer · Degree Project",
+    company: "Examensarbete",
+    context: "Åhlens AB",
+    period: "Dec 2025 – Maj 2026",
+    location: "Stockholm",
+    bullets: [
+      "Designade och byggde en skalbar dataplattform i Azure där rådata omvandlas till strukturerad, affärskritisk information.",
+      "Tillämpade avancerad SQL-modellering och data warehouse-arkitektur med faktatabeller och dimensionstabeller.",
+      "Implementerade feature engineering för AI/ML och automatiserade datakvalitetskontroller.",
+    ],
+  },
+  {
     role: "AI-strateg",
     company: "Guldkassan AB",
     period: "Juli 2025 – maj 2026",
