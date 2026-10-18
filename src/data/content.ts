@@ -173,20 +173,33 @@ export const projects: Project[] = [
   },
 ];
 
+// Samma grupper som i CV:t
 export const skillGroups = [
   {
-    title: "AI",
+    title: "AI & Generative AI",
     icon: "spark",
-    skills: ["LLM-integration (Claude/Anthropic SDK)", "AI-agenter", "MCP", "RAG", "scikit-learn"],
+    skills: ["LLM (Azure OpenAI, Claude)", "MCP-server-utveckling", "Prompt Engineering", "Microsoft Copilot", "Azure AI"],
   },
-  { title: "Backend & språk", icon: "code", skills: [".NET / C#", "Python", "TypeScript"] },
-  { title: "Frontend", icon: "layout", skills: ["Next.js", "React", "Tailwind CSS"] },
   {
-    title: "Moln & data",
-    icon: "cloud",
-    skills: ["Azure", "Azure Synapse Analytics", "Supabase"],
+    title: "Backend",
+    icon: "code",
+    skills: [".NET 10 & C#", "ASP.NET Core", "Minimal APIs", "REST API:er", "SQL & databaser"],
   },
-  { title: "Verktyg", icon: "tool", skills: ["Git / GitHub", "VS Code", "Claude Code"] },
+  {
+    title: "Frontend",
+    icon: "layout",
+    skills: ["HTML", "CSS", "JavaScript", "React", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    title: "Cloud & Data",
+    icon: "cloud",
+    skills: ["Microsoft Azure", "Synapse", "Data Lake", "Data Factory", "Data Warehousing & ETL"],
+  },
+  {
+    title: "Verktyg",
+    icon: "tool",
+    skills: ["Python", "Odoo ERP", "Git", "LangGraph", "pytest", "Agile / Scrum"],
+  },
   {
     title: "Lär mig just nu",
     icon: "rocket",
