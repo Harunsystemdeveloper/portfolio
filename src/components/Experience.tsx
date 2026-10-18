@@ -32,17 +32,30 @@ export default function Experience() {
               }`}
             />
             <div className="rounded-2xl border border-line bg-surface p-5 backdrop-blur transition hover:border-gold/40 sm:p-6">
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-                <h3 className="font-display text-lg font-semibold sm:text-xl">{item.role}</h3>
-                {item.current && (
-                  <span className="rounded-full bg-gold/15 px-2.5 py-0.5 text-xs font-medium text-gold">Pågående</span>
-                )}
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h3 className="font-display text-lg font-semibold sm:text-xl">
+                  {item.company}
+                  {item.context && <span className="font-sans text-base font-normal text-muted"> · {item.context}</span>}
+                </h3>
+                <p className="text-sm text-muted">
+                  {item.period}
+                  {item.location && ` · ${item.location}`}
+                </p>
               </div>
-              <p className="mt-1 text-sm">
-                <span className="text-cyan">{item.company}</span>
-                {!item.current && <span className="text-muted"> · {item.period}</span>}
+              <p className="mt-1 flex flex-wrap items-center gap-2 font-medium text-gold">
+                {item.role}
+                {item.current && (
+                  <span className="rounded-full bg-gold/15 px-2.5 py-0.5 text-xs font-medium">Pågående</span>
+                )}
               </p>
-              <p className="mt-3 leading-relaxed text-muted">{item.description}</p>
+              <ul className="mt-3 space-y-2 text-muted">
+                {item.bullets.map((bullet) => (
+                  <li key={bullet} className="flex gap-3 leading-relaxed">
+                    <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan" />
+                    <span>{bullet}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </Reveal>
         ))}

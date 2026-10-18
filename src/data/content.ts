@@ -52,8 +52,11 @@ export const aboutFacts = [
 export type Experience = {
   role: string;
   company: string;
+  /** Visas efter företaget, t.ex. kund eller avdelning */
+  context?: string;
   period: string;
-  description: string;
+  location?: string;
+  bullets: string[];
   current?: boolean;
 };
 
@@ -64,34 +67,35 @@ export const experiences: Experience[] = [
     company: "Castra",
     period: "Pågående",
     current: true,
-    description:
-      "Uppdrag hos Region Östergötland, Centrum för IT & Medicinsk Teknik, som IT-supporttekniker.",
+    bullets: ["Uppdrag hos Region Östergötland, Centrum för IT & Medicinsk Teknik, som IT-supporttekniker."],
   },
   {
     role: "AI-strateg",
     company: "Guldkassan AB",
     period: "Juli 2025 – maj 2026",
-    description:
+    bullets: [
       "Byggde bland annat Guldkassan.se (WordPress/Elementor), som ersatte manuell hantering av Instagram-DM med ett strukturerat kontaktformulär.",
+    ],
   },
   {
     role: "Cloud Engineer (LIA + examensarbete)",
     company: "Åhlens AB – IT & Infrastruktur",
     period: "[PERIOD]",
-    description:
+    bullets: [
       "Examensarbete om en AI Feature Warehouse i Azure Synapse Analytics. Arbetade även med IT-säkerhet: MFA/Microsoft Authenticator, arbetsplatssäkerhet och riskanalys.",
+    ],
   },
   {
     role: "Utvecklare",
     company: "Vertel AB",
     period: "[PERIOD]",
-    description: "Utveckling av Python-moduler för Odoo (ERP).",
+    bullets: ["Utveckling av Python-moduler för Odoo (ERP)."],
   },
   {
     role: "[FYLL I ROLL]",
     company: "Transfer Galaxy",
     period: "[PERIOD]",
-    description: "[FYLL I BESKRIVNING]",
+    bullets: ["[FYLL I BESKRIVNING]"],
   },
 ];
 
