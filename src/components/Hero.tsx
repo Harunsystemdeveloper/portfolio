@@ -4,7 +4,7 @@ import HeroVisual from "./three/HeroVisual";
 
 export default function Hero() {
   return (
-    <section id="top" aria-labelledby="hero-rubrik" className="relative isolate flex min-h-svh items-start overflow-hidden md:items-center">
+    <section id="top" aria-labelledby="hero-rubrik" className="relative isolate flex min-h-svh items-start overflow-hidden lg:items-center">
       <div className="bg-grid absolute inset-0 -z-20 opacity-60" aria-hidden />
       <div className="absolute inset-0 -z-10">
         <HeroVisual />
@@ -12,10 +12,10 @@ export default function Hero() {
       {/* Gör texten läsbar ovanpå scenen */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-gradient-to-b from-bg via-bg/70 to-transparent md:bg-gradient-to-r md:from-bg md:via-bg/60 md:to-transparent"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-bg via-bg/70 to-transparent lg:bg-gradient-to-r lg:from-bg lg:via-bg/60 lg:to-transparent"
       />
 
-      <div className="mx-auto w-full max-w-6xl px-4 pt-28 pb-16 sm:px-6 md:pt-24">
+      <div className="mx-auto w-full max-w-6xl px-4 pt-28 pb-[34svh] sm:px-6 lg:pt-24 lg:pb-16">
         <div className="max-w-xl">
           <p className="animate-rise mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-xs text-muted backdrop-blur sm:text-sm">
             <span className="relative flex h-2 w-2">

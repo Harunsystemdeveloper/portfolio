@@ -13,7 +13,7 @@ export default function SceneFallback() {
     <div className="absolute inset-0 overflow-hidden" aria-hidden>
       <svg
         viewBox="0 0 440 340"
-        className="absolute right-[-10%] bottom-[4%] w-[110%] max-w-none opacity-80 md:top-1/2 md:right-[2%] md:bottom-auto md:w-[52%] md:-translate-y-1/2"
+        className="absolute right-[-10%] bottom-[4%] w-[110%] max-w-none opacity-80 lg:top-1/2 lg:right-[2%] lg:bottom-auto lg:w-[52%] lg:-translate-y-1/2"
       >
         <defs>
           <linearGradient id="fb-step" x1="0" x2="1" y1="0" y2="0">
