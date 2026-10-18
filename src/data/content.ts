@@ -145,7 +145,20 @@ export type Project = {
   links: { label: string; href: string }[];
 };
 
+// "Pågående fördjupning" i CV:t
 export const projects: Project[] = [
+  {
+    title: "AI-agenter & MCP",
+    role: "Fördjupningsprogram",
+    period: "Sep 2026 – Pågående",
+    description: "Utvecklar mina kunskaper inom AI-agenter och MCP-servrar, byggda från grunden.",
+    bullets: [
+      "Agentloop med tool use, indatavalidering och felhantering mot Anthropic API (Claude).",
+      "MCP-server (SQLite) och multi-agent-system i LangGraph med human-in-the-loop och evals.",
+    ],
+    ongoing: true,
+    links: [{ label: "GitHub", href: "[GITHUB-LÄNK]" }],
+  },
   {
     title: "Rekryo",
     role: "Grundare & Lead Developer",
@@ -153,22 +166,6 @@ export const projects: Project[] = [
       "AI-driven jobbmatchningsplattform för den svenska arbetsmarknaden. CV-uppladdning med AI-analys, jobbmatchning med poäng, kompetensgapsanalys, generering av intervjufrågor och en talangpool där rekryterare hittar kandidater som valt att synas. Agentarkitektur med tool-use-loop för jobbsökning och rankning.",
     tags: ["Next.js", "TypeScript", "Tailwind", "Supabase (RLS)", "Claude Sonnet"],
     links: [{ label: "Besök", href: "[LÄNK]" }],
-  },
-  {
-    title: "MCP-server för anteckningar & uppgifter",
-    description:
-      "Produktionsklar MCP-server med SQLite, väldokumenterade verktyg och resurser, felhantering – plus en agent som använder den.",
-    tags: ["Python", "MCP", "SQLite"],
-    ongoing: true,
-    links: [{ label: "GitHub", href: "[GITHUB-LÄNK]" }],
-  },
-  {
-    title: "Multi-agent-system",
-    description:
-      "Researcher-, Analyst-, Writer- och Reviewer-agenter med LangGraph, human-in-the-loop och loggning, byggt ovanpå MCP-servern.",
-    tags: ["Python", "LangGraph", "MCP"],
-    ongoing: true,
-    links: [{ label: "GitHub", href: "[GITHUB-LÄNK]" }],
   },
   {
     title: "Svensk textklassificerare",
