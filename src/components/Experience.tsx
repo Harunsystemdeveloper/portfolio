@@ -13,7 +13,7 @@ export default function Experience() {
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
 
   return (
-    <Section id="erfarenhet" eyebrow="Erfarenhet" title="Resan hittills">
+    <Section id="erfarenhet" eyebrow="Arbetslivserfarenhet" title="Resan hittills">
       <ol ref={listRef} className="relative ml-2 space-y-10 sm:ml-4">
         {/* Bakgrundslinje + linje som ritas upp i takt med scroll */}
         <span aria-hidden className="absolute top-2 bottom-2 left-0 w-px bg-line" />

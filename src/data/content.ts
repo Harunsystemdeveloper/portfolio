@@ -60,7 +60,7 @@ export type Experience = {
   current?: boolean;
 };
 
-// Senaste först
+// Samma ordning som i CV:t
 export const experiences: Experience[] = [
   {
     role: "IT-Konsult · IT-Supporttekniker",
