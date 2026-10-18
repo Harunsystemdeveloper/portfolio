@@ -19,7 +19,7 @@ export const person = {
   title: "Systemutvecklare – .NET, C#, Cloud & AI",
   pitch: "Jag brinner för tech och älskar att bygga smarta lösningar som gör verklig skillnad.",
   status: "Söker tjänst inom systemutveckling",
-  location: "Linköping / Stockholm",
+  location: "Linköping · Östergötland",
   // Lägg din CV-fil i /public/cv.pdf
   cvUrl: "/cv.pdf",
   email: "[DIN E-POST]",
