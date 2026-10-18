@@ -122,10 +122,15 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    role: "[FYLL I ROLL]",
-    company: "Transfer Galaxy",
-    period: "[PERIOD]",
-    bullets: ["[FYLL I BESKRIVNING]"],
+    role: "Fullstackutvecklare",
+    company: "Transfer Galaxy AB",
+    period: "Jan 2023 – Maj 2024",
+    bullets: [
+      "Fullstackutveckling med C# i backend och HTML, CSS och JavaScript i frontend.",
+      "Byggde responsiva och användarvänliga webbsidor i HTML, CSS och JavaScript.",
+      "Arbetade med SQL och databaser och kopplade ihop webbsidorna med dem.",
+      "Validerade och granskade kod för att hitta brister och fel innan publicering.",
+    ],
   },
 ];
 
