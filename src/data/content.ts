@@ -18,6 +18,7 @@ export const person = {
   name: "Harun Ali",
   title: "Systemutvecklare – .NET, C#, Cloud & AI",
   pitch: "Jag brinner för tech och älskar att bygga smarta lösningar som gör verklig skillnad.",
+  status: "Söker tjänst inom systemutveckling",
   location: "Linköping / Stockholm",
   // Lägg din CV-fil i /public/cv.pdf
   cvUrl: "/cv.pdf",

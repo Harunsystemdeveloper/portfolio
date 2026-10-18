@@ -22,7 +22,7 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-60 motion-reduce:hidden" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
             </span>
-            Söker jobb & uppdrag inom AI-utveckling
+            {person.status}
           </p>
 
           <h1 id="hero-rubrik" className="font-display text-5xl leading-[1.05] font-bold tracking-tight sm:text-6xl lg:text-7xl">
