@@ -101,11 +101,14 @@ export const experiences: Experience[] = [
     ],
   },
   {
-    role: "AI-strateg",
+    role: "AI-strateg & utvecklare",
     company: "Guldkassan AB",
-    period: "Juli 2025 – maj 2026",
+    period: "Juli 2025 – Maj 2026",
+    location: "Stockholm",
     bullets: [
-      "Byggde bland annat Guldkassan.se (WordPress/Elementor), som ersatte manuell hantering av Instagram-DM med ett strukturerat kontaktformulär.",
+      "Hjälpte företaget bli mer effektivt genom att identifiera och implementera AI-lösningar i det dagliga arbetet.",
+      "Drev integration av AI-verktyg i affärsprocesser för att automatisera arbetsflöden och höja produktiviteten.",
+      "Deltog i utvecklingsprocessen för företagets webbplats, från koncept till lansering.",
     ],
   },
   {
