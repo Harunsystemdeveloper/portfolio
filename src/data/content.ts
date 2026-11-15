@@ -40,6 +40,9 @@ export const heroStats = [
   { value: "2", label: "egna AI-projekt pågår" },
 ];
 
+// "Utforskar just nu" – visas i Om mig-sektionen
+export const exploring = ["RAG med riktig evaluation", "Agents + tool use + MCP", "FastAPI & Docker", "Tracing, cost & guardrails"];
+
 export const navLinks = [
   { href: "#om-mig", label: "Om mig" },
   { href: "#erfarenhet", label: "Erfarenhet" },
