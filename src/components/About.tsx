@@ -1,14 +1,7 @@
 import { about, aboutFacts, exploring } from "@/data/content";
-import Icon from "./ui/Icon";
+import FactCard from "./FactCard";
 import Reveal from "./ui/Reveal";
 import Section from "./ui/Section";
-
-const factIcons: Record<string, string> = {
-  Utbildning: "cap",
-  Språk: "globe",
-  Intressen: "heart",
-  Plats: "pin",
-};
 
 export default function About() {
   return (
@@ -52,16 +45,8 @@ export default function About() {
         </Reveal>
 
         {aboutFacts.map((fact, i) => (
-          <Reveal key={fact.label} delay={0.06 * i} className="card spot p-5 md:col-span-3 lg:col-span-3">
-            <div className="flex items-start gap-4">
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-line bg-bg-soft text-gold">
-                <Icon name={factIcons[fact.label] ?? "spark"} width={18} height={18} />
-              </span>
-              <div>
-                <p className="font-mono text-[11px] tracking-[0.15em] text-subtle uppercase">{fact.label}</p>
-                <p className="mt-1 font-medium">{fact.value}</p>
-              </div>
-            </div>
+          <Reveal key={fact.label} delay={0.06 * i} className="md:col-span-3">
+            <FactCard fact={fact} index={i} />
           </Reveal>
         ))}
       </div>

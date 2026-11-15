@@ -17,6 +17,7 @@
   --gold-strong: #ffd27a;
   --cyan: #4fdcff;
   --green: #3ee0a1;
+  --violet: #ab9cff;
   --glow-gold: rgba(247, 184, 75, 0.32);
   --glow-cyan: rgba(79, 220, 255, 0.26);
   --aurora-1: rgba(79, 220, 255, 0.16);
@@ -40,6 +41,7 @@
   --gold-strong: #7d4700;
   --cyan: #04708d;
   --green: #047857;
+  --violet: #5b48d6;
   --glow-gold: rgba(217, 140, 20, 0.2);
   --glow-cyan: rgba(4, 112, 141, 0.16);
   --aurora-1: rgba(4, 150, 190, 0.12);
@@ -63,6 +65,7 @@
   --color-gold-strong: var(--gold-strong);
   --color-cyan: var(--cyan);
   --color-green: var(--green);
+  --color-violet: var(--violet);
   --color-on-accent: var(--on-accent);
   --font-sans: var(--font-geist);
   --font-display: var(--font-display);
@@ -159,7 +162,7 @@ body {
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s;
-  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--glow-cyan), transparent 45%);
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--spot, var(--glow-cyan)), transparent 45%);
 }
 
 .spot:hover::before {
@@ -168,6 +171,17 @@ body {
 
 .spot:hover {
   border-color: var(--border-strong);
+}
+
+/* Infokort med egen accentfärg (sätts via --accent) */
+.fact-card {
+  --spot: color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.fact-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  box-shadow: 0 24px 60px -28px color-mix(in srgb, var(--accent) 60%, transparent);
 }
 
 /* Gradientkant för de viktigaste ytorna */

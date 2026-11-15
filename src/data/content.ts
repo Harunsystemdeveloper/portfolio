@@ -58,11 +58,58 @@ export const about = [
   "Just nu söker jag en tjänst inom systemutveckling och jag är alltid hungrig på att lära mig nytt.",
 ];
 
-export const aboutFacts = [
-  { label: "Utbildning", value: "Systemutvecklare .NET, TUC Yrkeshögskola (aug 2024 – maj 2026)" },
-  { label: "Språk", value: "Svenska och engelska (flytande), spanska (grundläggande)" },
-  { label: "Intressen", value: "Sport & träning, entreprenörskap" },
-  { label: "Plats", value: person.location },
+export type AboutFact = {
+  label: string;
+  icon: string;
+  /** Kortets accentfärg */
+  accent: "gold" | "cyan" | "violet" | "green";
+  title: string;
+  /** Rader under rubriken. "level" (1–3) visar en nivåmätare, t.ex. för språk. */
+  details: { name: string; value?: string; level?: number }[];
+  /** Kort kontextrad längst ner i kortet */
+  note: string;
+};
+
+export const aboutFacts: AboutFact[] = [
+  {
+    label: "Utbildning",
+    icon: "cap",
+    accent: "gold",
+    title: "Systemutvecklare .NET",
+    details: [{ name: "TUC Yrkeshögskola" }, { name: "aug 2024 – maj 2026" }],
+    note: "Examen maj 2026 – med examensarbete i Azure hos Åhlens.",
+  },
+  {
+    label: "Språk",
+    icon: "globe",
+    accent: "cyan",
+    title: "Svenska & engelska",
+    details: [
+      { name: "Svenska", value: "Flytande", level: 3 },
+      { name: "Engelska", value: "Flytande", level: 3 },
+      { name: "Spanska", value: "Grundläggande", level: 1 },
+    ],
+    note: "Arbetar obehindrat på både svenska och engelska.",
+  },
+  {
+    label: "Intressen",
+    icon: "heart",
+    accent: "violet",
+    title: "Det som driver mig",
+    details: [
+      { name: "Sport & träning", value: "håller energin och disciplinen uppe" },
+      { name: "Entreprenörskap", value: "driver Rekryo som founder" },
+    ],
+    note: "Samma driv på träningen som i koden.",
+  },
+  {
+    label: "Plats",
+    icon: "pin",
+    accent: "green",
+    title: person.location,
+    details: [{ name: "Öppen för möjligheter i regionen" }, { name: "Remote / distans" }],
+    note: "Söker tjänst inom systemutveckling.",
+  },
 ];
 
 export type Experience = {
