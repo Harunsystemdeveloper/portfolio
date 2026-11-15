@@ -253,29 +253,41 @@ export const skillGroups = [
   {
     title: "AI & Generative AI",
     icon: "spark",
+    note: "Mitt fokus just nu – från promptar till agenter i produktion.",
     skills: ["LLM (Azure OpenAI, Claude)", "MCP-server-utveckling", "Prompt Engineering", "Microsoft Copilot", "Azure AI"],
   },
   {
     title: "Backend",
     icon: "code",
+    note: "Kärnan i min utbildning och mina uppdrag.",
     skills: [".NET 10 & C#", "ASP.NET Core", "Minimal APIs", "REST API:er", "SQL & databaser"],
   },
   {
     title: "Frontend",
     icon: "layout",
+    note: "Responsiva gränssnitt som är lätta att använda.",
     skills: ["HTML", "CSS", "JavaScript", "React", "TypeScript", "Tailwind CSS"],
   },
   {
     title: "Cloud & Data",
     icon: "cloud",
+    note: "Från rådata till affärskritisk information i Azure.",
     skills: ["Microsoft Azure", "Synapse", "Data Lake", "Data Factory", "Data Warehousing & ETL"],
   },
   {
     title: "Verktyg",
     icon: "tool",
+    note: "Det jag använder varje dag för att leverera.",
     skills: ["Python", "Odoo ERP", "Git", "LangGraph", "pytest", "Agile / Scrum"],
   },
 ] as const;
+
+// Visas i AI-kortet under Kompetenser: var AI-kunskaperna faktiskt använts
+export const aiInPractice = [
+  { where: "Guldkassan AB", what: "AI-verktyg integrerade i affärsprocesser" },
+  { where: "Rekryo", what: "AI-driven matchning och CV-analys" },
+  { where: "Fördjupning", what: "RAG med evaluation, agenter och MCP" },
+];
 
 // Egna motton som visas mellan sektionerna
 export const mottos = {
