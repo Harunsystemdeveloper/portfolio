@@ -72,6 +72,9 @@ export type Experience = {
   context?: string;
   period: string;
   location?: string;
+  /** En mening om det viktigaste resultatet – visas alltid */
+  highlight: string;
+  tags: string[];
   bullets: string[];
   current?: boolean;
 };
@@ -85,6 +88,8 @@ export const experiences: Experience[] = [
     period: "Juni 2026 – Pågående",
     location: "Linköping",
     current: true,
+    highlight: "Första linjens IT-stöd för vård- och administrativ personal i Region Östergötland.",
+    tags: ["IT-support", "Hårdvara", "Nätverk", "Ärendehantering"],
     bullets: [
       "Anställd som konsult på Castra med uppdrag hos Region Östergötland, avdelningen Centrum för IT & Medicinsk Teknik.",
       "Första kontakten för regionens medarbetare vid tekniska problem och frågor.",
@@ -98,6 +103,8 @@ export const experiences: Experience[] = [
     context: "IT & Infrastructure",
     period: "Dec 2025 – Maj 2026",
     location: "Stockholm",
+    highlight: "Skalbara Azure-lösningar och .NET-system för en av Sveriges största detaljhandlare.",
+    tags: ["Azure", "C#", ".NET", "Behörigheter", "Kostnadsoptimering"],
     bullets: [
       "Byggde och förvaltade skalbara molnlösningar i Microsoft Azure för en av Sveriges största detaljhandlare.",
       "Utvecklade och underhöll .NET-baserade system i C# med fokus på driftsäkerhet och prestanda.",
@@ -110,6 +117,8 @@ export const experiences: Experience[] = [
     context: "Åhlens AB",
     period: "Dec 2025 – Maj 2026",
     location: "Stockholm",
+    highlight: "Dataplattform i Azure som gör rådata till strukturerad, affärskritisk information.",
+    tags: ["Azure", "SQL", "Data Warehouse", "Feature engineering"],
     bullets: [
       "Designade och byggde en skalbar dataplattform i Azure där rådata omvandlas till strukturerad, affärskritisk information.",
       "Tillämpade avancerad SQL-modellering och data warehouse-arkitektur med faktatabeller och dimensionstabeller.",
@@ -121,6 +130,8 @@ export const experiences: Experience[] = [
     company: "Guldkassan AB",
     period: "Juli 2025 – Maj 2026",
     location: "Stockholm",
+    highlight: "Identifierade och införde AI-lösningar som automatiserade företagets arbetsflöden.",
+    tags: ["AI-strategi", "Automatisering", "AI-verktyg", "Webb"],
     bullets: [
       "Hjälpte företaget bli mer effektivt genom att identifiera och implementera AI-lösningar i det dagliga arbetet.",
       "Drev integration av AI-verktyg i affärsprocesser för att automatisera arbetsflöden och höja produktiviteten.",
@@ -132,6 +143,8 @@ export const experiences: Experience[] = [
     company: "Vertel AB",
     period: "Mar – Jun 2025",
     location: "Linköping",
+    highlight: "Ägde Odoo-moduler och automatiseringsflöden från kravanalys till driftsatt lösning.",
+    tags: ["Odoo", "Python", "XML", "AI-verktyg"],
     bullets: [
       "Tog ägarskap över moduler och automatiseringsflöden i Odoo från kravanalys till driftsatt lösning med Python och XML.",
       "Integrerade AI-verktyg i arbetsflödet och höjde leveranstakten och kvaliteten.",
@@ -141,6 +154,8 @@ export const experiences: Experience[] = [
     role: "Fullstackutvecklare",
     company: "Transfer Galaxy AB",
     period: "Jan 2023 – Maj 2024",
+    highlight: "Fullstack med C# i backend och responsiva webbgränssnitt kopplade till SQL.",
+    tags: ["C#", "JavaScript", "HTML & CSS", "SQL"],
     bullets: [
       "Fullstackutveckling med C# i backend och HTML, CSS och JavaScript i frontend.",
       "Byggde responsiva och användarvänliga webbsidor i HTML, CSS och JavaScript.",
