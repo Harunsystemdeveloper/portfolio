@@ -67,7 +67,7 @@ export type AboutFact = {
   /** Rader under rubriken. "level" (1–3) visar en nivåmätare, t.ex. för språk. */
   details: { name: string; value?: string; level?: number }[];
   /** Kort kontextrad längst ner i kortet */
-  note: string;
+  note?: string;
 };
 
 export const aboutFacts: AboutFact[] = [
@@ -76,8 +76,7 @@ export const aboutFacts: AboutFact[] = [
     icon: "cap",
     accent: "gold",
     title: "Systemutvecklare .NET",
-    details: [{ name: "TUC Yrkeshögskola" }, { name: "aug 2024 – maj 2026" }],
-    note: "Examen maj 2026 – med examensarbete i Azure hos Åhlens.",
+    details: [{ name: "TUC Yrkeshögskola" }, { name: "Aug 2024 – Maj 2026" }],
   },
   {
     label: "Språk",
@@ -107,8 +106,12 @@ export const aboutFacts: AboutFact[] = [
     icon: "pin",
     accent: "green",
     title: person.location,
-    details: [{ name: "Öppen för möjligheter i regionen" }, { name: "Remote / distans" }],
-    note: "Söker tjänst inom systemutveckling.",
+    details: [
+      { name: "Öppen för möjligheter i regionen" },
+      { name: "Öppen för jobb i hela Sverige" },
+      { name: "Remote / distans" },
+    ],
+    note: "Söker tjänst inom systemutveckling – helst inom AI-utveckling, där jag kan fortsätta utveckla mina AI-kunskaper.",
   },
 ];
 

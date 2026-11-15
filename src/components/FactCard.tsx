@@ -64,12 +64,14 @@ export default function FactCard({ fact, index }: { fact: AboutFact; index: numb
         ))}
       </ul>
 
-      <div className="mt-auto pt-6">
-        <p className="flex items-start gap-2 border-t border-line pt-4 text-sm leading-relaxed text-muted">
-          <Icon name="spark" width={14} height={14} className="mt-[3px] shrink-0 text-[var(--accent)]" />
-          {fact.note}
-        </p>
-      </div>
+      {fact.note && (
+        <div className="mt-auto pt-6">
+          <p className="flex items-start gap-2 border-t border-line pt-4 text-sm leading-relaxed text-muted">
+            <Icon name="spark" width={14} height={14} className="mt-[3px] shrink-0 text-[var(--accent)]" />
+            {fact.note}
+          </p>
+        </div>
+      )}
     </article>
   );
 }
