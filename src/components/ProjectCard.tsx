@@ -38,14 +38,25 @@ export default function ProjectCard({ project, index }: { project: Project; inde
                 {image.caption}
               </span>
             </figcaption>
+            {/* Mörk bild i mörkt tema, ljus i ljust tema (dolda bilder laddas inte) */}
             <Image
               src={image.src}
               alt={`Skärmdump av ${image.caption}`}
               width={image.width}
               height={image.height}
               sizes="(min-width: 1152px) 1024px, 100vw"
-              className="block h-auto w-full"
+              className={`block h-auto w-full ${image.srcLight ? "light:hidden" : ""}`}
             />
+            {image.srcLight && (
+              <Image
+                src={image.srcLight}
+                alt={`Skärmdump av ${image.caption} i ljust tema`}
+                width={image.width}
+                height={image.height}
+                sizes="(min-width: 1152px) 1024px, 100vw"
+                className="hidden h-auto w-full light:block"
+              />
+            )}
           </figure>
         ) : project.mockup === "agent" ? (
           <div className="w-full space-y-10">

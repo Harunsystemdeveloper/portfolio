@@ -236,8 +236,11 @@ export type Project = {
   ongoing?: boolean;
   /** Vilken kodritad mockup som visas tills en riktig bild finns */
   mockup: "agent" | "platform";
-  /** Valfri skärmdump i /public/projekt. Ersätter mockupen. Ange bildens verkliga mått i pixlar. */
-  image?: { src: string; width: number; height: number; caption: string };
+  /**
+   * Valfri skärmdump i /public/projekt. Ersätter mockupen. Ange bildens verkliga mått i pixlar.
+   * srcLight visas i ljust tema (samma mått som src).
+   */
+  image?: { src: string; srcLight?: string; width: number; height: number; caption: string };
   links: { label: string; href: string }[];
 };
 
@@ -294,7 +297,13 @@ export const projects: Project[] = [
     tags: ["AI / LLM", "CV-analys", "Matchning", "Pipeline", "Full stack"],
     ongoing: true,
     mockup: "platform",
-    image: { src: "/projekt/rekryo.png", width: 1260, height: 864, caption: "Rekryo · startsida" },
+    image: {
+      src: "/projekt/rekryo.png",
+      srcLight: "/projekt/rekryo-ljus.png",
+      width: 1260,
+      height: 864,
+      caption: "Rekryo · startsida",
+    },
     links: [{ label: "Besök", href: "[LÄNK]" }],
   },
 ];
