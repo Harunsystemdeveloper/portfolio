@@ -54,8 +54,8 @@ export const navLinks = [
 // Profiltexten från CV:t
 export const about = [
   "Systemutvecklare med starkt tekniskt fokus och praktisk erfarenhet av .NET, Cloud och AI.",
-  "Jag brinner för tech och älskar att bygga smarta lösningar som gör verklig skillnad.",
-  "Just nu söker jag en tjänst inom systemutveckling och jag är alltid hungrig på att lära mig nytt.",
+  "Jag brinner för tech och älskar att bygga smarta, väl genomtänkta lösningar som skapar verklig nytta.",
+  "Just nu söker jag främst tjänster inom AI-utveckling, men är även öppen för systemutvecklingsroller där jag får kombinera min bakgrund med modern AI-teknik. Jag är ständigt nyfiken och driven att lära mig mer.",
 ];
 
 export type AboutFact = {
