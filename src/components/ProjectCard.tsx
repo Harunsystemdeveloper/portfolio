@@ -1,112 +1,136 @@
-"use client";
-
-import { useRef, type PointerEvent } from "react";
+import Image from "next/image";
 import { isPlaceholder, type Project } from "@/data/content";
+import AgentMockup from "./mockups/AgentMockup";
+import PlatformMockup from "./mockups/PlatformMockup";
 import Icon from "./ui/Icon";
+import Reveal from "./ui/Reveal";
 
-const MAX_TILT = 6; // grader
-
-export default function ProjectCard({ project }: { project: Project }) {
-  const ref = useRef<HTMLElement>(null);
-
-  // Uppdaterar CSS-variabler direkt – ingen omrendering av React vid musrörelse
-  function onPointerMove(e: PointerEvent<HTMLElement>) {
-    const el = ref.current;
-    if (!el || e.pointerType !== "mouse") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const rect = el.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    el.style.setProperty("--mx", `${x * 100}%`);
-    el.style.setProperty("--my", `${y * 100}%`);
-    el.style.setProperty("--rx", `${(0.5 - y) * MAX_TILT}deg`);
-    el.style.setProperty("--ry", `${(x - 0.5) * MAX_TILT}deg`);
-  }
-
-  function onPointerLeave() {
-    ref.current?.style.setProperty("--rx", "0deg");
-    ref.current?.style.setProperty("--ry", "0deg");
-  }
+export default function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const flip = index % 2 === 1;
 
   return (
-    <article
-      ref={ref}
-      onPointerMove={onPointerMove}
-      onPointerLeave={onPointerLeave}
-      className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface p-5 backdrop-blur transition-[transform,border-color] duration-300 ease-out [transform:perspective(900px)_rotateX(var(--rx,0deg))_rotateY(var(--ry,0deg))] hover:border-gold/40 sm:p-7"
-    >
-      {/* Glöd som följer musen */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        style={{
-          background:
-            "radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--glow-gold), transparent 45%)",
-        }}
-      />
+    <Reveal as="article" className="card spot overflow-hidden !rounded-[2rem]">
+      <div className={`grid lg:grid-cols-2 ${flip ? "lg:[&>*:first-child]:order-2" : ""}`}>
+        {/* Visuell del: riktig skärmdump om den finns, annars en kodritad mockup */}
+        <div className="relative isolate overflow-hidden border-b border-line bg-bg-soft/60 p-5 sm:p-8 lg:border-b-0 lg:p-10">
+          <div
+            aria-hidden
+            className={`absolute -z-10 h-[30rem] w-[30rem] ${
+              project.mockup === "agent" ? "-top-40 -left-40 glow-cyan" : "-right-40 -bottom-40 glow-gold"
+            }`}
+          />
+          <div className="bg-grid absolute inset-0 -z-10 opacity-60" aria-hidden />
+          <div className="flex h-full items-center">
+            {project.image ? (
+              <Image
+                src={project.image}
+                alt={`Skärmdump av ${project.title}`}
+                width={1600}
+                height={1000}
+                sizes="(min-width: 1024px) 560px, 100vw"
+                className="w-full rounded-xl border border-line shadow-2xl"
+              />
+            ) : project.mockup === "agent" ? (
+              <AgentMockup />
+            ) : (
+              <PlatformMockup />
+            )}
+          </div>
+        </div>
 
-      <div className="relative flex flex-wrap items-center gap-2">
-        {project.ongoing && (
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan/40 bg-cyan/10 px-2.5 py-0.5 text-xs font-medium text-cyan">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cyan" aria-hidden />
-            Pågående
-          </span>
-        )}
-        {project.role && (
-          <span className="rounded-full bg-gold/15 px-2.5 py-0.5 text-xs font-medium text-gold">{project.role}</span>
-        )}
-      </div>
+        <div className="flex flex-col p-6 sm:p-10">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-xs text-muted">
+            <span className="text-subtle">0{index + 1}</span>
+            {project.period && <span>{project.period}</span>}
+            {project.ongoing && (
+              <span className="flex items-center gap-1.5 rounded-full bg-green/15 px-2.5 py-0.5 text-green">
+                <span className="h-1.5 w-1.5 rounded-full bg-green" />
+                Pågående
+              </span>
+            )}
+          </div>
 
-      <h3 className="relative mt-4 font-display text-2xl font-semibold">
-        {project.title}
-      </h3>
-      {project.period && <p className="relative mt-1 text-sm text-muted">{project.period}</p>}
+          <h3 className="mt-4 font-display text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">{project.title}</h3>
+          {project.role && <p className="mt-1 text-gold">{project.role}</p>}
+          <p className="mt-4 text-lg leading-snug text-fg/90 text-pretty">{project.tagline}</p>
 
-      <div className="relative mt-3 flex-1 text-muted">
-        {project.description && <p className="leading-relaxed">{project.description}</p>}
-        {project.bullets && (
-          <ul className="mt-3 space-y-2 text-[15px] sm:text-base">
-            {project.bullets.map((bullet) => (
-              <li key={bullet} className="flex gap-2.5 leading-relaxed sm:gap-3">
-                <span aria-hidden className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan" />
-                <span>{bullet}</span>
+          <dl className="mt-7 space-y-6">
+            <div>
+              <dt className="font-mono text-[11px] tracking-[0.15em] text-cyan uppercase">{project.problemLabel ?? "Utmaningen"}</dt>
+              <dd className="mt-2 leading-relaxed text-muted text-pretty">{project.problem}</dd>
+            </div>
+            <div>
+              <dt className="font-mono text-[11px] tracking-[0.15em] text-cyan uppercase">{project.bulletsLabel ?? "Vad jag byggt"}</dt>
+              <dd className="mt-2">
+                <ul className="space-y-2">
+                  {project.bullets.map((bullet) => (
+                    <li key={bullet} className="flex gap-3 text-[15px] leading-relaxed text-muted">
+                      <span aria-hidden className="mt-2.5 h-1 w-3 shrink-0 rounded-full bg-gold/70" />
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+            <div>
+              <dt className="font-mono text-[11px] tracking-[0.15em] text-cyan uppercase">{project.outcomesLabel ?? "Resultat"}</dt>
+              <dd className="mt-3">
+                <ul className="grid gap-2">
+                  {project.outcomes.map((outcome) => (
+                    <li
+                      key={outcome}
+                      className="flex items-start gap-3 rounded-xl border border-line bg-bg-soft/50 px-3.5 py-2.5 text-sm font-medium"
+                    >
+                      <Icon name="check" width={16} height={16} className="mt-0.5 shrink-0 text-green" />
+                      {outcome}
+                    </li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          </dl>
+
+          <ul className="mt-7 flex flex-wrap gap-1.5" aria-label="Teknik">
+            {project.tags.map((tag) => (
+              <li key={tag} className="chip">
+                {tag}
               </li>
             ))}
           </ul>
-        )}
-      </div>
 
-      {project.tags && project.tags.length > 0 && (
-        <ul className="relative mt-5 flex flex-wrap gap-2" aria-label="Teknik">
-          {project.tags.map((tag) => (
-            <li key={tag} className="rounded-md border border-line bg-bg-soft/60 px-2 py-1 font-mono text-xs text-fg/80">
-              {tag}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      <div className="relative mt-6 flex flex-wrap gap-4">
-        {project.links.map((link) =>
-          isPlaceholder(link.href) ? (
-            <span key={link.label} className="text-sm text-muted italic" title="Länk saknas – fyll i i content.ts">
-              {link.label}: {link.href}
-            </span>
-          ) : (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-gold underline-offset-4 hover:underline"
-            >
-              {link.label}
-              <Icon name={link.label === "GitHub" ? "github" : "external"} width={16} height={16} />
-              <span className="sr-only">(öppnas i ny flik) – {project.title}</span>
-            </a>
-          ),
-        )}
+          <div className="mt-8 flex flex-wrap gap-3 border-t border-line pt-6 lg:mt-auto">
+            {project.links.map((link, i) => {
+              const missing = isPlaceholder(link.href);
+              const icon = link.label === "GitHub" ? "github" : "external";
+              if (missing) {
+                return (
+                  <span
+                    key={link.label}
+                    className="btn cursor-not-allowed border border-dashed border-line-strong text-sm text-subtle"
+                    title="Länken läggs till snart"
+                  >
+                    <Icon name={icon} width={16} height={16} />
+                    {link.label} – kommer snart
+                  </span>
+                );
+              }
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`btn group text-sm ${i === 0 ? "btn-primary" : "btn-ghost"}`}
+                >
+                  <Icon name={icon} width={16} height={16} />
+                  {link.label}
+                  <span className="sr-only"> (öppnas i ny flik)</span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
       </div>
-    </article>
+    </Reveal>
   );
 }

@@ -168,10 +168,26 @@ export type Project = {
   title: string;
   role?: string;
   period?: string;
-  description?: string;
-  bullets?: string[];
-  tags?: string[];
+  /** Kort säljande mening under titeln */
+  tagline: string;
+  /** Utmaningen projektet löser */
+  problem: string;
+  /** Rubrik för problem (standard: "Utmaningen") */
+  problemLabel?: string;
+  /** Vad du byggt – samma punkter som i CV:t */
+  bullets: string[];
+  /** Rubrik för punkterna (standard: "Vad jag byggt") */
+  bulletsLabel?: string;
+  /** Det projektet åstadkommer, i korta fraser */
+  outcomes: string[];
+  /** Rubrik för outcomes (standard: "Resultat") */
+  outcomesLabel?: string;
+  tags: string[];
   ongoing?: boolean;
+  /** Vilken kodritad mockup som visas tills en riktig bild finns */
+  mockup: "agent" | "platform";
+  /** Valfri skärmdump i /public, t.ex. "/projekt/rekryo.png" (16:10). Ersätter mockupen. */
+  image?: string;
   links: { label: string; href: string }[];
 };
 
@@ -181,24 +197,43 @@ export const projects: Project[] = [
     title: "AI-agenter & MCP",
     role: "Fördjupningsprogram",
     period: "Sep 2026 – Pågående",
-    description: "Utvecklar mina kunskaper inom AI-agenter och MCP-servrar, byggda från grunden.",
+    tagline: "Agenter som använder verktyg på riktigt – byggda från grunden.",
+    problem:
+      "En språkmodell kan resonera men inte agera. För att göra verkligt arbete behöver den verktyg, tillgång till data och tydliga kontrollpunkter där en människa kan säga stopp.",
     bullets: [
       "Agentloop med tool use, indatavalidering och felhantering mot Anthropic API (Claude).",
       "MCP-server (SQLite) och multi-agent-system i LangGraph med human-in-the-loop och evals.",
     ],
+    outcomes: [
+      "Egen agentloop utan ramverk – full kontroll över varje verktygsanrop",
+      "MCP-server som ger modellen strukturerad åtkomst till data",
+      "Human-in-the-loop och evals för säkra, mätbara beslut",
+    ],
+    tags: ["Anthropic API", "Tool use", "MCP", "SQLite", "LangGraph", "Evals"],
     ongoing: true,
+    mockup: "agent",
     links: [{ label: "GitHub", href: "[GITHUB-LÄNK]" }],
   },
   {
     title: "Rekryo",
     role: "Founder & Lead Developer",
     period: "2025 – Pågående",
+    tagline: "AI-driven rekrytering som gör kvalitativ matchning tillgänglig för alla företag.",
+    problem:
+      "Bra rekrytering kräver tid och verktyg som många företag saknar. Målet är att göra kvalitativ rekrytering tillgänglig för alla företag oavsett storlek.",
     bullets: [
       "Bygger på fritiden en AI-driven rekryteringsplattform som matchar jobbsökare med tjänster via automatisk CV-analys och matchningspoäng.",
       "Bygger hela plattformen helt med hjälp av olika AI-verktyg från kodgenerering till design och testning.",
       "Plattformen ger rekryterare verktyg för kandidatsökning, intervjubokning och pipelinehantering med målet att göra kvalitativ rekrytering tillgänglig för alla företag oavsett storlek.",
     ],
+    outcomes: [
+      "Automatisk CV-analys med matchningspoäng",
+      "Kandidatsökning, intervjubokning och pipeline på ett ställe",
+      "Byggd AI-first – från kodgenerering till design och test",
+    ],
+    tags: ["AI / LLM", "CV-analys", "Matchning", "Pipeline", "Full stack"],
     ongoing: true,
+    mockup: "platform",
     links: [{ label: "Besök", href: "[LÄNK]" }],
   },
 ];
