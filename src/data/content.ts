@@ -194,22 +194,32 @@ export type Project = {
 // "Pågående fördjupning" i CV:t
 export const projects: Project[] = [
   {
-    title: "AI-agenter & MCP",
-    role: "Fördjupningsprogram",
+    title: "Applied AI Developer 2026",
+    role: "AI-fördjupning · fördjupningskurs",
     period: "Sep 2026 – Pågående",
-    tagline: "Agenter som använder verktyg på riktigt – byggda från grunden.",
+    tagline: "Från AI-demo till produktion: RAG med riktig evaluation, agenter med MCP och production-skills.",
+    problemLabel: "Fokus",
     problem:
-      "En språkmodell kan resonera men inte agera. För att göra verkligt arbete behöver den verktyg, tillgång till data och tydliga kontrollpunkter där en människa kan säga stopp.",
+      "I prioritetsordning: 1) RAG med riktig evaluation, 2) agents + tool use + MCP, 3) production-skills – FastAPI, Docker, tracing, cost och guardrails.",
+    bulletsLabel: "Upplägg i tre faser",
     bullets: [
-      "Agentloop med tool use, indatavalidering och felhantering mot Anthropic API (Claude).",
-      "MCP-server (SQLite) och multi-agent-system i LangGraph med human-in-the-loop och evals.",
+      "Fas 1 · Production RAG med evaluation (6–7 v): Document Q&A-system med hybrid search + reranking, citations, golden evaluation set (≥30 frågor), metrics för retrieval, faithfulness och answer relevancy samt enkel UI.",
+      "Fas 2 · Agents + tool use + MCP (5–6 v): en agent som använder flera verktyg, har egen MCP-server, loggar steg, mäter success rate och har human-in-the-loop.",
+      "Fas 3 · Production & observability (4 v): det bästa projektet görs production-ready med FastAPI, Docker, tracing + cost tracking, guardrails och CI med evaluation.",
     ],
+    outcomesLabel: "Projekt",
     outcomes: [
-      "Egen agentloop utan ramverk – full kontroll över varje verktygsanrop",
-      "MCP-server som ger modellen strukturerad åtkomst till data",
-      "Human-in-the-loop och evals för säkra, mätbara beslut",
+      "production-rag-with-evals – RAG med hybrid search, citations och evals",
+      "agent-with-mcp-tools – agent med egen MCP-server och human-in-the-loop",
     ],
-    tags: ["Anthropic API", "Tool use", "MCP", "SQLite", "LangGraph", "Evals"],
+    tags: [
+      "Python",
+      "LlamaIndex / LangChain",
+      "OpenAI · Anthropic · Azure OpenAI",
+      "Chroma → Qdrant / Azure AI Search",
+      "FastAPI",
+      "Docker",
+    ],
     ongoing: true,
     mockup: "agent",
     links: [{ label: "GitHub", href: "[GITHUB-LÄNK]" }],
