@@ -8,7 +8,7 @@ const nodes: Node[] = [
   { id: "mcp", label: "MCP-server", sub: "verktyg", x: 74, y: 150, tone: "cyan" },
   { id: "api", label: ".NET API", sub: "C# · REST", x: 406, y: 150, tone: "cyan" },
   { id: "db", label: "Vector DB", sub: "Qdrant · RAG", x: 70, y: 330, tone: "cyan" },
-  { id: "azure", label: "Azure", sub: "OpenAI · AI Search", x: 410, y: 330, tone: "cyan" },
+  { id: "azure", label: "Azure", sub: "OpenAI · Search", x: 410, y: 330, tone: "cyan" },
   { id: "evals", label: "Evals", sub: "golden set", x: 240, y: 424, tone: "gold" },
 ];
 
