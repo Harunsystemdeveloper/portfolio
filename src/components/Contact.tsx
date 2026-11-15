@@ -24,7 +24,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="kontakt" aria-labelledby="kontakt-rubrik" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-32">
+    <section id="kontakt" aria-labelledby="kontakt-rubrik" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
       <Reveal className="card ring-gradient relative isolate overflow-hidden !rounded-[2rem] p-6 sm:p-12 lg:p-16">
         <div aria-hidden className="absolute -top-64 -left-56 -z-10 h-[36rem] w-[36rem] glow-gold" />
         <div aria-hidden className="absolute -right-56 -bottom-64 -z-10 h-[36rem] w-[36rem] glow-cyan" />
