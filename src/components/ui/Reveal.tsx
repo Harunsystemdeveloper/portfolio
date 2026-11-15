@@ -1,7 +1,4 @@
-"use client";
-
-import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 type Props = {
   children: ReactNode;
@@ -10,17 +7,10 @@ type Props = {
   as?: "div" | "li" | "article";
 };
 
-/** Tonar och glider in innehållet när det scrollas in i bild. */
-export default function Reveal({ children, delay = 0, className, as = "div" }: Props) {
-  const Component = motion[as];
+/** Tonar och glider in innehållet när det scrollas in i bild (se <RevealRoot />). */
+export default function Reveal({ children, delay = 0, className, as: Component = "div" }: Props) {
   return (
-    <Component
-      className={className}
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <Component data-reveal className={className} style={{ "--delay": `${delay}s` } as CSSProperties}>
       {children}
     </Component>
   );

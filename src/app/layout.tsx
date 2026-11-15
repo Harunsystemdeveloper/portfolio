@@ -1,10 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
 import { isPlaceholder, person, site } from "@/data/content";
+import Background from "@/components/ui/Background";
+import MotionGate from "@/components/ui/MotionGate";
+import RevealRoot from "@/components/ui/RevealRoot";
+import Spotlight from "@/components/ui/Spotlight";
 import "./globals.css";
 
-const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
-const display = Space_Grotesk({
+const geist = Geist({ variable: "--font-geist", subsets: ["latin"], display: "swap" });
+const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], display: "swap" });
+const display = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
@@ -35,28 +40,37 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#060914" },
-    { media: "(prefers-color-scheme: light)", color: "#f6f7fb" },
+    { media: "(prefers-color-scheme: dark)", color: "#05070f" },
+    { media: "(prefers-color-scheme: light)", color: "#f7f6f2" },
   ],
 };
 
 // Körs före första renderingen så att rätt tema visas direkt (ingen blinkning).
-const themeScript = `try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light')}catch(e){}`;
+// Klassen "js" gör att scroll-animationerna bara döljer innehåll när JavaScript faktiskt körs.
+const themeScript = `document.documentElement.classList.add('js');try{if(localStorage.getItem('theme')==='light')document.documentElement.classList.add('light')}catch(e){}`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="sv" className={`${inter.variable} ${display.variable} antialiased`} suppressHydrationWarning>
+    <html
+      lang="sv"
+      className={`${geist.variable} ${geistMono.variable} ${display.variable} antialiased`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className="min-h-dvh">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-lg focus:bg-gold focus:px-4 focus:py-2 focus:text-black"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-lg focus:bg-gold focus:px-4 focus:py-2 focus:text-on-accent"
         >
           Hoppa till innehållet
         </a>
+        <Background />
         {children}
+        <RevealRoot />
+        <MotionGate />
+        <Spotlight />
       </body>
     </html>
   );

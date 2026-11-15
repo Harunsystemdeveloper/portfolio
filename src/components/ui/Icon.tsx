@@ -15,6 +15,12 @@ const paths: Record<string, string> = {
   arrow: "M5 12h14M13 6l6 6-6 6",
   pin: "M12 21s-6-5.3-6-11a6 6 0 0 1 12 0c0 5.7-6 11-6 11zM12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z",
   external: "M14 4h6v6M20 4l-9 9M18 14v5H5V6h5",
+  cap: "M2 9l10-5 10 5-10 5zM6 11v5c3 2 9 2 12 0v-5M22 9v6",
+  globe: "M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18",
+  heart: "M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z",
+  copy: "M9 9h11v11H9zM5 15H4V4h11v1",
+  check: "M5 12l5 5 9-10",
+  plus: "M12 5v14M5 12h14",
 };
 
 export default function Icon({ name, ...props }: { name: string } & SVGProps<SVGSVGElement>) {

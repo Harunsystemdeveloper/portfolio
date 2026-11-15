@@ -4,32 +4,48 @@
 @custom-variant light (&:where(.light, .light *));
 
 :root {
-  --bg: #060914;
-  --bg-soft: #0b1122;
-  --surface: rgba(17, 24, 45, 0.72);
-  --border: rgba(148, 163, 200, 0.16);
-  --fg: #e8ebf4;
-  --muted: #9ba5bd;
-  --gold: #f5b942;
-  --gold-strong: #ffcf6b;
-  --cyan: #38d6f5;
-  --glow-gold: rgba(245, 185, 66, 0.35);
-  --glow-cyan: rgba(56, 214, 245, 0.3);
+  --bg: #05070f;
+  --bg-soft: #0a0f1e;
+  --surface: rgba(15, 21, 40, 0.74);
+  --surface-strong: #0e1528;
+  --border: rgba(140, 160, 210, 0.14);
+  --border-strong: rgba(140, 160, 210, 0.3);
+  --fg: #eef1f8;
+  --muted: #9aa4bd;
+  --subtle: #7f89a3;
+  --gold: #f7b84b;
+  --gold-strong: #ffd27a;
+  --cyan: #4fdcff;
+  --green: #3ee0a1;
+  --glow-gold: rgba(247, 184, 75, 0.32);
+  --glow-cyan: rgba(79, 220, 255, 0.26);
+  --aurora-1: rgba(79, 220, 255, 0.16);
+  --aurora-2: rgba(247, 184, 75, 0.1);
+  --aurora-3: rgba(120, 110, 255, 0.12);
+  --on-accent: #05070f;
   color-scheme: dark;
 }
 
 .light {
-  --bg: #f6f7fb;
-  --bg-soft: #eceff6;
-  --surface: rgba(255, 255, 255, 0.85);
-  --border: rgba(30, 41, 70, 0.14);
-  --fg: #0b1124;
-  --muted: #475069;
-  --gold: #a35c00;
-  --gold-strong: #8a4d00;
-  --cyan: #0b7490;
-  --glow-gold: rgba(217, 140, 20, 0.22);
-  --glow-cyan: rgba(14, 116, 144, 0.18);
+  --bg: #f7f6f2;
+  --bg-soft: #efede6;
+  --surface: rgba(255, 255, 255, 0.8);
+  --surface-strong: #ffffff;
+  --border: rgba(20, 30, 60, 0.12);
+  --border-strong: rgba(20, 30, 60, 0.26);
+  --fg: #0b1122;
+  --muted: #4a5266;
+  --subtle: #5b6378;
+  --gold: #9a5800;
+  --gold-strong: #7d4700;
+  --cyan: #04708d;
+  --green: #047857;
+  --glow-gold: rgba(217, 140, 20, 0.2);
+  --glow-cyan: rgba(4, 112, 141, 0.16);
+  --aurora-1: rgba(4, 150, 190, 0.12);
+  --aurora-2: rgba(240, 160, 40, 0.14);
+  --aurora-3: rgba(110, 100, 240, 0.08);
+  --on-accent: #ffffff;
   color-scheme: light;
 }
 
@@ -37,63 +53,357 @@
   --color-bg: var(--bg);
   --color-bg-soft: var(--bg-soft);
   --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
   --color-line: var(--border);
+  --color-line-strong: var(--border-strong);
   --color-fg: var(--fg);
   --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
   --color-gold: var(--gold);
   --color-gold-strong: var(--gold-strong);
   --color-cyan: var(--cyan);
-  --font-sans: var(--font-inter);
+  --color-green: var(--green);
+  --color-on-accent: var(--on-accent);
+  --font-sans: var(--font-geist);
   --font-display: var(--font-display);
+  --font-mono: var(--font-geist-mono);
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 6rem;
   overflow-x: hidden;
 }
 
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-geist), system-ui, sans-serif;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--gold);
-  color: #0b1124;
+  background: var(--cyan);
+  color: var(--on-accent);
 }
 
 :focus-visible {
   outline: 2px solid var(--cyan);
   outline-offset: 3px;
-  border-radius: 6px;
+  border-radius: 8px;
 }
 
 .text-gradient {
-  background: linear-gradient(100deg, var(--gold-strong), var(--gold) 40%, var(--cyan));
+  background: linear-gradient(100deg, var(--gold-strong), var(--gold) 35%, var(--cyan) 85%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-/* Subtilt rutnät i bakgrunden */
+/* ---------- Bakgrund: rutnät, norrsken och brus ---------- */
 .bg-grid {
   background-image:
     linear-gradient(var(--border) 1px, transparent 1px),
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 10%, transparent 75%);
+}
+
+.aurora {
+  background:
+    radial-gradient(40% 35% at 15% 10%, var(--aurora-1), transparent 70%),
+    radial-gradient(35% 30% at 85% 15%, var(--aurora-3), transparent 70%),
+    radial-gradient(45% 40% at 60% 70%, var(--aurora-2), transparent 70%);
+}
+
+.anim-ready .aurora {
+  animation: aurora 24s ease-in-out infinite alternate;
+}
+
+@keyframes aurora {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(-3%, 2%, 0) scale(1.08); }
+}
+
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  opacity: 0.035;
+}
+
+@layer components {
+/* Mjuka glöd: radiella gradienter istället för blur-filter, som är dyra att måla på mobil */
+.glow-cyan {
+  background: radial-gradient(closest-side, var(--glow-cyan), transparent);
+}
+
+.glow-gold {
+  background: radial-gradient(closest-side, var(--glow-gold), transparent);
+}
+
+/* ---------- Kort ---------- */
+.card {
+  position: relative;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 1.5rem;
+  transition: border-color 0.3s, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+}
+
+/* Ljuskägla som följer muspekaren (sätts av <Spotlight />) */
+.spot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--glow-cyan), transparent 45%);
+}
+
+.spot:hover::before {
+  opacity: 1;
+}
+
+.spot:hover {
+  border-color: var(--border-strong);
+}
+
+/* Gradientkant för de viktigaste ytorna */
+.ring-gradient {
+  position: relative;
+}
+
+.ring-gradient::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg, var(--gold), transparent 35%, transparent 65%, var(--cyan));
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  pointer-events: none;
+}
+
+/* ---------- Knappar ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.85rem 1.5rem;
+  font-weight: 500;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.3s;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--on-accent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--gold) 60%, transparent), 0 10px 40px -10px var(--glow-gold);
+}
+
+.btn-primary:hover {
+  background: var(--gold-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px var(--gold-strong), 0 16px 50px -10px var(--glow-gold);
+}
+
+.btn-ghost {
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+}
+
+.btn-ghost:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg-soft) 70%, transparent);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.chip:hover {
+  border-color: var(--cyan);
+  color: var(--fg);
+}
+}
+
+/* ---------- Rörelse ---------- */
+
+/* Innehåll döljs bara när JavaScript körs, så sidan fungerar även utan */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s);
+}
+
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Mjuk entré för hero-innehåll (ren CSS, påverkar inte LCP) */
+.animate-rise {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
+  50% { transform: translateY(-8px); }
 }
 
 .animate-float {
-  animation: float 5s ease-in-out infinite;
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes flow {
+  to { stroke-dashoffset: -40; }
+}
+
+.edge-flow {
+  stroke-dasharray: 4 6;
+}
+
+/* Grafens dekorativa animationer startar först när <MotionGate /> satt .anim-ready */
+.anim-ready .edge-flow {
+  animation: flow 1.6s linear infinite;
+}
+
+@keyframes travel {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+
+.graph-pulse {
+  visibility: hidden;
+}
+
+.anim-ready .graph-pulse {
+  visibility: visible;
+  animation-name: travel;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes ring {
+  from { transform: scale(1); opacity: 0.5; }
+  to { transform: scale(1.45); opacity: 0; }
+}
+
+.graph-ring {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.anim-ready .graph-spin {
+  animation: spin 40s linear infinite;
+}
+
+.anim-ready .graph-ring {
+  animation: ring 2.6s ease-out infinite;
+}
+
+/* Sektioner utanför skärmen pausar sina animationer */
+[data-paused] *,
+[data-paused] *::before,
+[data-paused] *::after {
+  animation-play-state: paused !important;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin 40s linear infinite;
+}
+
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.caret {
+  animation: blink 1s step-end infinite;
+}
+
+/* Tidslinjen fylls i medan man scrollar (scroll-driven animation där det stöds) */
+.timeline-fill {
+  transform-origin: top;
+}
+
+@supports (animation-timeline: view()) {
+  .timeline-fill {
+    animation: grow linear both;
+    animation-timeline: view();
+    animation-range: entry 20% cover 60%;
+  }
+}
+
+@keyframes grow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+/* Utfällbara detaljer animeras mjukt i webbläsare som stöder det */
+details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size 0.4s cubic-bezier(0.22, 1, 0.36, 1), content-visibility 0.4s allow-discrete;
+}
+
+details[open]::details-content {
+  block-size: auto;
+}
+
+:root {
+  interpolate-size: allow-keywords;
+}
+
+summary {
+  list-style: none;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Temabyte med cirkulär övergång */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -107,14 +417,11 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-/* Mjuk entré för hero-innehåll (ren CSS, påverkar inte LCP) */
-@keyframes rise {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: none; }
-}
-
-.animate-rise {
-  animation: rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+  .motion-pulse {
+    display: none;
+  }
 }
