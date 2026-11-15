@@ -2,7 +2,13 @@
 
 import { useEffect } from "react";
 
-/** Ger alla [data-reveal]-element klassen "is-in" när de scrollas in i bild. */
+const SELECTOR = "[data-reveal]:not(.is-in)";
+
+/**
+ * Ger alla [data-reveal]-element klassen "is-in" när de scrollas in i bild.
+ * Bevakar även element som läggs till senare (t.ex. vid omrendering), så att
+ * inget innehåll kan fastna osynligt.
+ */
 export default function RevealRoot() {
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -15,8 +21,20 @@ export default function RevealRoot() {
       },
       { rootMargin: "0px 0px 40px 0px" },
     );
-    document.querySelectorAll("[data-reveal]").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    const observeAll = () => document.querySelectorAll(SELECTOR).forEach((el) => observer.observe(el));
+    observeAll();
+
+    let frame = 0;
+    const mutations = new MutationObserver(() => {
+      if (!frame) frame = requestAnimationFrame(() => ((frame = 0), observeAll()));
+    });
+    mutations.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["class"] });
+
+    return () => {
+      observer.disconnect();
+      mutations.disconnect();
+      cancelAnimationFrame(frame);
+    };
   }, []);
 
   return null;
