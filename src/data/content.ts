@@ -25,6 +25,21 @@ export const person = {
   github: "https://github.com/Harunsystemdeveloper",
 };
 
+// Stora rubriken i hero. Delarna med "accent" färgas.
+export const heroHeadline: { text: string; accent?: boolean }[] = [
+  { text: "Jag bygger " },
+  { text: ".NET-system", accent: true },
+  { text: ", molnplattformar och " },
+  { text: "AI-agenter", accent: true },
+  { text: " som gör verklig skillnad." },
+];
+
+export const heroStats = [
+  { value: "3+", label: "år i branschen" },
+  { value: "5", label: "arbetsgivare & uppdrag" },
+  { value: "2", label: "egna AI-projekt pågår" },
+];
+
 export const navLinks = [
   { href: "#om-mig", label: "Om mig" },
   { href: "#erfarenhet", label: "Erfarenhet" },
