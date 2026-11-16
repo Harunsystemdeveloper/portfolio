@@ -28,7 +28,7 @@ export default function Hero() {
               {person.name} <span className="text-subtle">/</span> Systemutvecklare
             </span>
             <span
-              className="animate-rise mt-5 block font-display text-[2.6rem] leading-[0.98] font-semibold tracking-[-0.04em] text-balance sm:text-6xl lg:text-[4.5rem]"
+              className="animate-rise mt-5 block font-display text-[2.25rem] leading-[1.02] font-semibold tracking-[-0.035em] text-balance sm:text-[3.25rem] lg:text-[3.75rem]"
               style={delay(120)}
             >
               {heroHeadline.map((part, i) =>
