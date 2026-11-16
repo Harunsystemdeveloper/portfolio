@@ -242,6 +242,8 @@ export type Project = {
    */
   image?: { src: string; srcLight?: string; width: number; height: number; caption: string };
   links: { label: string; href: string }[];
+  /** Kort notis under länkarna, t.ex. att sidan är under utveckling */
+  linkNote?: string;
 };
 
 // "Pågående fördjupning" i CV:t
@@ -304,7 +306,8 @@ export const projects: Project[] = [
       height: 864,
       caption: "Rekryo · startsida",
     },
-    links: [{ label: "Besök", href: "[LÄNK]" }],
+    links: [{ label: "Besök", href: "https://rekryo.vercel.app/" }],
+    linkNote: "Sidan är under pågående utveckling – vissa funktioner är inte helt färdiga än.",
   },
 ];
 

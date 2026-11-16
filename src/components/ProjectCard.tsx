@@ -137,36 +137,46 @@ export default function ProjectCard({ project, index }: { project: Project; inde
   );
 
   const links = (
-    <div className="flex flex-wrap gap-3 border-t border-line pt-6">
-      {project.links.map((link, i) => {
-        const missing = isPlaceholder(link.href);
-        const icon = link.label === "GitHub" ? "github" : "external";
-        if (missing) {
+    <div className="border-t border-line pt-6">
+      <div className="flex flex-wrap gap-3">
+        {project.links.map((link, i) => {
+          const missing = isPlaceholder(link.href);
+          const icon = link.label === "GitHub" ? "github" : "external";
+          if (missing) {
+            return (
+              <span
+                key={link.label}
+                className="btn cursor-not-allowed border border-dashed border-line-strong text-sm text-subtle"
+                title="Länken läggs till snart"
+              >
+                <Icon name={icon} width={16} height={16} />
+                {link.label} – kommer snart
+              </span>
+            );
+          }
           return (
-            <span
+            <a
               key={link.label}
-              className="btn cursor-not-allowed border border-dashed border-line-strong text-sm text-subtle"
-              title="Länken läggs till snart"
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`btn group text-sm ${i === 0 ? "btn-primary" : "btn-ghost"}`}
             >
               <Icon name={icon} width={16} height={16} />
-              {link.label} – kommer snart
-            </span>
+              {link.label}
+              <span className="sr-only"> (öppnas i ny flik)</span>
+            </a>
           );
-        }
-        return (
-          <a
-            key={link.label}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`btn group text-sm ${i === 0 ? "btn-primary" : "btn-ghost"}`}
-          >
-            <Icon name={icon} width={16} height={16} />
-            {link.label}
-            <span className="sr-only"> (öppnas i ny flik)</span>
-          </a>
-        );
-      })}
+        })}
+      </div>
+      {project.linkNote && (
+        <p className="mt-4 flex items-start gap-2 text-sm leading-relaxed text-muted">
+          <span className="mt-0.5 shrink-0 rounded-full bg-gold/15 px-2 py-0.5 font-mono text-[10px] tracking-wider text-gold uppercase">
+            Beta
+          </span>
+          {project.linkNote}
+        </p>
+      )}
     </div>
   );
 
