@@ -80,6 +80,13 @@ export default function Hero() {
               </a>
             </span>
           </div>
+
+          <p
+            className="animate-rise mt-12 max-w-lg border-t border-line pt-6 font-display text-lg text-muted sm:text-xl"
+            style={delay(320)}
+          >
+            {person.tagline}
+          </p>
         </div>
 
         <div className="animate-rise lg:col-span-5" style={delay(200)}>

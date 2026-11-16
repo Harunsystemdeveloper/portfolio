@@ -20,6 +20,8 @@ export const person = {
   pitch: "Jag utvecklar i C# och .NET och brinner för att omsätta ny teknik och AI i lösningar som fungerar i verkligheten.",
   status: "Söker tjänst inom systemutveckling",
   location: "Linköping · Östergötland",
+  /** Kort rad om dig längst ner i heron */
+  tagline: "AI-nörd med ett intresse för entreprenörskap och problemlösning.",
   /** Kort platsangivelse i heron */
   city: "Linköping, Sweden",
   email: "Harunali2002@icloud.com",
