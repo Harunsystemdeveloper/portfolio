@@ -270,6 +270,7 @@ export const projects: Project[] = [
     ],
     tags: [
       "Python",
+      "MCP-server-utveckling",
       "LlamaIndex / LangChain",
       "OpenAI · Anthropic · Azure OpenAI",
       "Chroma → Qdrant / Azure AI Search",
@@ -318,7 +319,7 @@ export const skillGroups = [
     title: "AI & Generative AI",
     icon: "spark",
     note: "Mitt fokus just nu – från promptar till agenter i produktion.",
-    skills: ["LLM (Azure OpenAI, Claude)", "MCP-server-utveckling", "Prompt Engineering", "Microsoft Copilot", "Cursor", "Codex"],
+    skills: ["LLM (Azure OpenAI, Claude)", "Prompt Engineering", "Microsoft Copilot", "Cursor", "Codex"],
   },
   {
     title: "Backend",
