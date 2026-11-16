@@ -43,7 +43,7 @@ export default function Contact() {
               Har du en roll där jag passar? <span className="text-gradient">Låt oss prata.</span>
             </h2>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
-              Söker du en systemutvecklare inom .NET, C#, Cloud eller AI? Hör av dig – jag svarar gärna.
+              Söker du en hungrig systemutvecklare inom C# och .NET med ett brinnande intresse för AI? Hör av dig, jag svarar gärna.
             </p>
 
             <a

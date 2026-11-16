@@ -17,7 +17,7 @@ export const site = {
 export const person = {
   name: "Harun Ali",
   title: "Systemutvecklare – .NET, C#, Cloud & AI",
-  pitch: "Jag brinner för tech och älskar att bygga smarta lösningar som gör verklig skillnad.",
+  pitch: "Jag brinner för tech, utveckling och AI, och bygger smarta lösningar som gör verklig skillnad.",
   status: "Söker tjänst inom systemutveckling",
   location: "Linköping · Östergötland",
   email: "Harunali2002@icloud.com",
@@ -55,8 +55,7 @@ export const navLinks = [
 // Profiltexten från CV:t
 export const about = [
   "Systemutvecklare med starkt tekniskt fokus och praktisk erfarenhet av .NET, Cloud och AI.",
-  "Jag brinner för tech och älskar att bygga smarta, väl genomtänkta lösningar som skapar verklig nytta.",
-  "Just nu söker jag främst tjänster inom AI-utveckling, men är även öppen för systemutvecklingsroller där jag får kombinera min bakgrund med modern AI-teknik. Jag är ständigt nyfiken och driven att lära mig mer.",
+  "Jag vill jobba med systemutveckling på riktigt, och använda AI där det faktiskt gör nytta. Det är där jag lär mig mest och trivs bäst.",
 ];
 
 export type AboutFact = {
@@ -100,7 +99,7 @@ export const aboutFacts: AboutFact[] = [
       { name: "Sport & träning", value: "håller energin och disciplinen uppe" },
       { name: "Entreprenörskap", value: "driver Rekryo som founder" },
     ],
-    note: "Samma driv på träningen som i koden.",
+    note: "Disciplin och uthållighet som jag tar med mig in i arbetet.",
   },
   {
     label: "Plats",
@@ -108,9 +107,8 @@ export const aboutFacts: AboutFact[] = [
     accent: "green",
     title: person.location,
     details: [
-      { name: "Öppen för möjligheter i regionen" },
-      { name: "Öppen för jobb i hela Sverige" },
-      { name: "Remote / distans" },
+      { name: "Öppen för att arbeta i hela Sverige" },
+      { name: "Både på plats och på distans" },
     ],
     note: "Söker tjänst inom systemutveckling – helst inom AI-utveckling, där jag kan fortsätta utveckla mina AI-kunskaper.",
   },

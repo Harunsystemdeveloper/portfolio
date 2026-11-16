@@ -14,7 +14,7 @@ export default function Experience() {
           Från fullstack till <span className="text-gradient">moln och AI</span>
         </>
       }
-      lead="Fem arbetsgivare, en röd tråd: att bygga lösningar som fungerar i verkligheten. Klicka på en roll för detaljerna."
+      lead="Varje roll har gett mig nya verktyg, nya perspektiv och mer erfarenhet av att leverera i riktiga verksamheter. Klicka på en roll för detaljerna."
     >
       <ol className="relative">
         {/* Tidslinjen: en svag bas och en färgad linje som fylls i när man scrollar */}
