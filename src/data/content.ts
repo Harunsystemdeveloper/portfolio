@@ -205,12 +205,12 @@ export const experiences: Experience[] = [
     role: "Junior Fullstackutvecklare",
     company: "Transfer Galaxy AB",
     period: "Jan 2023 – Maj 2024",
-    highlight: "Utvecklade i befintliga system – C# i backend och HTML, CSS och JavaScript i frontend.",
-    tags: ["C#", "HTML & CSS", "JavaScript", "Kodvalidering"],
+    highlight: "Vidareutvecklade befintliga system i C# och gjorde webbgränssnitten responsiva för alla skärmstorlekar.",
+    tags: ["C#", "HTML & CSS", "JavaScript", "Responsiv design", "Kodvalidering"],
     bullets: [
-      "Fick chansen att arbeta med utveckling i befintliga system, både i C# och i frontend.",
-      "Arbetade med frontend och design i främst HTML, CSS och JavaScript.",
-      "Validerade koden innan den publicerades, så att fel upptäcktes i tid.",
+      "Vidareutvecklade befintliga system med C# i backend och HTML, CSS och JavaScript i frontend.",
+      "Gjorde webbsidorna responsiva, så att de fungerade och såg bra ut på mobil, surfplatta och desktop.",
+      "Granskade och validerade kod före publicering, så att fel fångades innan de nådde användarna.",
     ],
   },
 ];
