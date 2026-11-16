@@ -39,7 +39,7 @@ export const heroHeadline: { text: string; accent?: boolean }[] = [
 
 export const heroStats = [
   { value: "3+", label: "år i branschen" },
-  { value: "5", label: "arbetsgivare & uppdrag" },
+  { value: "10", label: "AI-verktyg i praktiken" },
   { value: "2", label: "egna AI-projekt pågår" },
 ];
 
