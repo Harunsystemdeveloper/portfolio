@@ -1,4 +1,4 @@
-import { heroHeadline, heroStats, person } from "@/data/content";
+import { heroHeadline, person } from "@/data/content";
 import AgentGraph from "./hero/AgentGraph";
 import Icon from "./ui/Icon";
 
@@ -80,15 +80,6 @@ export default function Hero() {
               </a>
             </span>
           </div>
-
-          <dl className="animate-rise mt-12 grid max-w-lg grid-cols-3 gap-4 border-t border-line pt-6" style={delay(320)}>
-            {heroStats.map((stat) => (
-              <div key={stat.label} className="flex flex-col-reverse justify-end">
-                <dt className="mt-1 text-xs leading-snug text-muted sm:text-sm">{stat.label}</dt>
-                <dd className="font-display text-3xl font-semibold tracking-tight sm:text-4xl">{stat.value}</dd>
-              </div>
-            ))}
-          </dl>
         </div>
 
         <div className="animate-rise lg:col-span-5" style={delay(200)}>

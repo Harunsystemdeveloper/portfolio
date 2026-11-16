@@ -37,12 +37,6 @@ export const heroHeadline: { text: string; accent?: boolean }[] = [
   { text: "." },
 ];
 
-export const heroStats = [
-  { value: "3+", label: "år i branschen" },
-  { value: "10", label: "AI-verktyg i praktiken" },
-  { value: "2", label: "egna AI-projekt pågår" },
-];
-
 // "Utforskar just nu" – visas i Om mig-sektionen
 export const exploring = ["RAG med riktig evaluation", "Agents + tool use + MCP", "FastAPI & Docker", "Tracing, cost & guardrails"];
 
