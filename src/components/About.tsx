@@ -11,7 +11,7 @@ export default function About() {
       eyebrow="Om mig"
       title={
         <>
-          Byggare med fokus på <span className="text-gradient">verklig nytta</span>
+          Utvecklare med fokus på <span className="text-gradient">verklig nytta</span>
         </>
       }
     >
