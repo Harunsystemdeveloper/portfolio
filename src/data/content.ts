@@ -110,7 +110,7 @@ export const aboutFacts: AboutFact[] = [
       { name: "Öppen för att arbeta i hela Sverige" },
       { name: "Både på plats och på distans" },
     ],
-    note: "Söker tjänst inom systemutveckling – helst inom AI-utveckling, där jag kan fortsätta utveckla mina AI-kunskaper.",
+    note: "Söker tjänst inom systemutveckling, gärna med inslag av AI.",
   },
 ];
 
