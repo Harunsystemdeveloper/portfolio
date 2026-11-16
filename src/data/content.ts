@@ -181,12 +181,12 @@ export const experiences: Experience[] = [
     company: "Guldkassan AB",
     period: "Juli 2025 – Maj 2026",
     location: "Stockholm",
-    highlight: "Identifierade och införde AI-lösningar som automatiserade företagets arbetsflöden.",
+    highlight: "Införde AI-verktyg som automatiserade återkommande uppgifter och sparade tid för personalen.",
     tags: ["AI-strategi", "Automatisering", "AI-verktyg", "Webb"],
     bullets: [
       "Hjälpte företaget bli mer effektivt genom att identifiera och implementera AI-lösningar i det dagliga arbetet.",
-      "Drev integration av AI-verktyg i affärsprocesser för att automatisera arbetsflöden och höja produktiviteten.",
       "Deltog i utvecklingsprocessen för företagets webbplats, från koncept till lansering.",
+      "Tog fram och införde AI-verktyg som automatiserade återkommande uppgifter och sparade tid för personalen.",
     ],
   },
   {
@@ -194,11 +194,11 @@ export const experiences: Experience[] = [
     company: "Vertel AB",
     period: "Mar – Jun 2025",
     location: "Linköping",
-    highlight: "Ägde Odoo-moduler och automatiseringsflöden från kravanalys till driftsatt lösning.",
+    highlight: "Arbetade med moduler och automatiseringsflöden i Odoo ERP, från kravanalys till färdig lösning.",
     tags: ["Odoo", "Python", "XML", "Perplexity", "ChatGPT"],
     bullets: [
-      "Tog ägarskap över moduler och automatiseringsflöden i Odoo från kravanalys till driftsatt lösning med Python och XML.",
-      "Integrerade AI-verktyg i arbetsflödet och höjde leveranstakten och kvaliteten.",
+      "Fick möjlighet att arbeta med Odoo ERP och utveckla kunskaper inom systemets moduler och automatiseringsflöden, från kravanalys till färdig lösning med Python och XML.",
+      "Utforskade även användningen av AI-verktyg som stöd för felsökning, problemlösning och kodförbättring.",
     ],
   },
   {
