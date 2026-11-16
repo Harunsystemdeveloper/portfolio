@@ -194,7 +194,7 @@ export const experiences: Experience[] = [
     period: "Mar – Jun 2025",
     location: "Linköping",
     highlight: "Ägde Odoo-moduler och automatiseringsflöden från kravanalys till driftsatt lösning.",
-    tags: ["Odoo", "Python", "XML", "AI-verktyg"],
+    tags: ["Odoo", "Python", "XML", "Perplexity", "ChatGPT"],
     bullets: [
       "Tog ägarskap över moduler och automatiseringsflöden i Odoo från kravanalys till driftsatt lösning med Python och XML.",
       "Integrerade AI-verktyg i arbetsflödet och höjde leveranstakten och kvaliteten.",
@@ -296,7 +296,7 @@ export const projects: Project[] = [
       "Kandidatsökning, intervjubokning och pipeline på ett ställe",
       "Byggd AI-first – från kodgenerering till design och test",
     ],
-    tags: ["AI / LLM", "CV-analys", "Matchning", "Pipeline", "Full stack"],
+    tags: ["AI / LLM", "CV-analys", "Matchning", "Pipeline", "Full stack", "Claude Code", "Grok", "Gemini", "Copilot"],
     ongoing: true,
     mockup: "platform",
     image: {
@@ -317,7 +317,7 @@ export const skillGroups = [
     title: "AI & Generative AI",
     icon: "spark",
     note: "Mitt fokus just nu – från promptar till agenter i produktion.",
-    skills: ["LLM (Azure OpenAI, Claude)", "MCP-server-utveckling", "Prompt Engineering", "Microsoft Copilot", "Azure AI"],
+    skills: ["LLM (Azure OpenAI, Claude)", "MCP-server-utveckling", "Prompt Engineering", "Microsoft Copilot", "Cursor", "Codex"],
   },
   {
     title: "Backend",
