@@ -1,4 +1,4 @@
-import { heroHeadline, person } from "@/data/content";
+import { heroHeadline, heroQuote, person } from "@/data/content";
 import AgentGraph from "./hero/AgentGraph";
 import Icon from "./ui/Icon";
 
@@ -81,12 +81,17 @@ export default function Hero() {
             </span>
           </div>
 
-          <p
-            className="animate-rise mt-12 max-w-lg border-t border-line pt-6 font-display text-lg text-muted sm:text-xl"
-            style={delay(320)}
-          >
-            {person.tagline}
-          </p>
+          <figure className="animate-rise mt-12 max-w-lg border-t border-line pt-6" style={delay(320)}>
+            <blockquote className="relative pl-6 font-display text-lg leading-snug text-fg/85 italic sm:text-xl">
+              <span aria-hidden className="absolute -top-1 left-0 font-display text-3xl leading-none text-gold">
+                &ldquo;
+              </span>
+              {heroQuote.text}
+            </blockquote>
+            <figcaption className="mt-3 pl-6 text-sm text-muted">
+              <span className="font-medium text-fg">{heroQuote.author}</span>, {heroQuote.role}
+            </figcaption>
+          </figure>
         </div>
 
         <div className="animate-rise lg:col-span-5" style={delay(200)}>

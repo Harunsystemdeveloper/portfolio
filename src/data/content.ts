@@ -20,8 +20,6 @@ export const person = {
   pitch: "Jag utvecklar i C# och .NET och brinner för att omsätta ny teknik och AI i lösningar som fungerar i verkligheten.",
   status: "Söker tjänst inom systemutveckling",
   location: "Linköping · Östergötland",
-  /** Kort rad om dig längst ner i heron */
-  tagline: "AI-nörd med ett intresse för entreprenörskap och problemlösning.",
   /** Kort platsangivelse i heron */
   city: "Linköping, Sweden",
   email: "Harunali2002@icloud.com",
@@ -38,6 +36,13 @@ export const heroHeadline: { text: string; accent?: boolean }[] = [
   { text: "AI på djupet", accent: true },
   { text: "." },
 ];
+
+// Citat längst ner i heron
+export const heroQuote = {
+  text: "By not hiring and training up junior engineers, we are cannibalizing our own future. We need to stop doing that.",
+  author: "Charity Majors",
+  role: "CTO, Honeycomb",
+};
 
 // "Utforskar just nu" – visas i Om mig-sektionen
 export const exploring = ["RAG med riktig evaluation", "Agents + tool use + MCP", "FastAPI & Docker", "Tracing, cost & guardrails"];
