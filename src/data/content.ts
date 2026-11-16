@@ -356,7 +356,7 @@ export const skillGroups = [
     title: "Verktyg",
     icon: "tool",
     note: "Verktyg och arbetssätt jag har använt i projekt och uppdrag.",
-    skills: ["C#", "Python", "Git", "Claude Code", "Cursor", "Codex", "Agile / Scrum"],
+    skills: ["C#", "Python", "Git", "Claude Code", "Cursor", "Codex", "Lovable", "Agile / Scrum"],
   },
 ] as const;
 
