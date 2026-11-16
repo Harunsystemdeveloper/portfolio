@@ -197,7 +197,7 @@ export const experiences: Experience[] = [
     highlight: "Arbetade med moduler och automatiseringsflöden i Odoo ERP, från kravanalys till färdig lösning.",
     tags: ["Odoo", "Python", "XML", "Perplexity", "ChatGPT"],
     bullets: [
-      "Fick möjlighet att arbeta med Odoo ERP och utveckla kunskaper inom systemets moduler och automatiseringsflöden, från kravanalys till färdig lösning med Python och XML.",
+      "Fick möjlighet att arbeta med affärssystemet Odoo ERP och utveckla kunskaper inom systemets moduler och automatiseringsflöden, från kravanalys till färdig lösning med Python och XML.",
       "Utforskade även användningen av AI-verktyg som stöd för felsökning, problemlösning och kodförbättring.",
     ],
   },
