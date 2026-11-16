@@ -61,6 +61,19 @@ export default function Contact() {
               />
             </a>
 
+            <a
+              href={person.phone.href}
+              className="group mt-4 flex w-fit items-center gap-3 font-display text-xl font-medium tracking-tight text-muted transition hover:text-fg sm:text-2xl"
+            >
+              <span className="grid h-10 w-10 place-items-center rounded-full border border-line text-cyan transition group-hover:border-cyan">
+                <Icon name="phone" width={18} height={18} />
+              </span>
+              <span>
+                <span className="sr-only">Ring </span>
+                {person.phone.display}
+              </span>
+            </a>
+
             <div className="mt-8 flex flex-wrap gap-3">
               <CopyEmail email={person.email} />
               <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="btn btn-ghost text-sm">

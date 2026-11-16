@@ -21,6 +21,8 @@ const paths: Record<string, string> = {
   copy: "M9 9h11v11H9zM5 15H4V4h11v1",
   check: "M5 12l5 5 9-10",
   plus: "M12 5v14M5 12h14",
+  phone:
+    "M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z",
 };
 
 export default function Icon({ name, ...props }: { name: string } & SVGProps<SVGSVGElement>) {

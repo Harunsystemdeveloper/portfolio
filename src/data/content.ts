@@ -21,6 +21,7 @@ export const person = {
   status: "Söker tjänst inom systemutveckling",
   location: "Linköping · Östergötland",
   email: "Harunali2002@icloud.com",
+  phone: { display: "073-636 97 01", href: "tel:+46736369701" },
   linkedin: "https://www.linkedin.com/in/harun-a-90a835329",
   github: "https://github.com/Harunsystemdeveloper",
 };
