@@ -7,7 +7,7 @@
 
 export const site = {
   // Din domän (köpt på Namecheap, kopplad via Vercel)
-  url: "https://harunsoftwaretech.com",
+  url: "https://www.harunsoftwaretech.com",
   title: "Harun Ali – Systemutvecklare inom .NET, C#, Cloud & AI",
   description:
     "Systemutvecklare med starkt tekniskt fokus och praktisk erfarenhet av .NET, C#, Microsoft Azure och AI – LLM, AI-agenter och MCP-servrar.",
