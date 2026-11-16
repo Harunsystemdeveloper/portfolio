@@ -87,6 +87,9 @@ export default function Hero() {
                 &ldquo;
               </span>
               {heroQuote.text}
+              <span aria-hidden className="ml-1 font-display text-gold not-italic">
+                &rdquo;
+              </span>
             </blockquote>
             <figcaption className="mt-3 pl-6 text-sm text-muted">
               <span className="font-medium text-fg">{heroQuote.author}</span>, {heroQuote.role}
