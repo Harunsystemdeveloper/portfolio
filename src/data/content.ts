@@ -20,6 +20,8 @@ export const person = {
   pitch: "Jag utvecklar i C# och .NET och brinner för att omsätta ny teknik och AI i lösningar som fungerar i verkligheten.",
   status: "Söker tjänst inom systemutveckling",
   location: "Linköping · Östergötland",
+  /** Kort platsangivelse i heron */
+  city: "Linköping, Sweden",
   email: "Harunali2002@icloud.com",
   phone: { display: "073-636 97 01", href: "tel:+46736369701" },
   linkedin: "https://www.linkedin.com/in/harun-a-90a835329",
@@ -28,9 +30,9 @@ export const person = {
 
 // Stora rubriken i hero. Delarna med "accent" färgas.
 export const heroHeadline: { text: string; accent?: boolean }[] = [
-  { text: "Jag bygger " },
-  { text: "system som gör skillnad", accent: true },
-  { text: " och utforskar " },
+  { text: "Driven " },
+  { text: "systemutvecklare", accent: true },
+  { text: " som utforskar " },
   { text: "AI på djupet", accent: true },
   { text: "." },
 ];

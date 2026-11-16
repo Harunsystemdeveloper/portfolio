@@ -25,7 +25,7 @@ export default function Hero() {
               className="animate-rise block font-mono text-xs tracking-[0.18em] text-muted uppercase sm:text-sm"
               style={delay(60)}
             >
-              {person.name} <span className="text-subtle">/</span> Systemutvecklare
+              {person.name} <span className="text-subtle">/</span> C# · .NET · AI
             </span>
             <span
               className="animate-rise mt-5 block font-display text-[2.25rem] leading-[1.02] font-semibold tracking-[-0.035em] text-balance sm:text-[3.25rem] lg:text-[3.75rem]"
@@ -44,7 +44,11 @@ export default function Hero() {
           </h1>
 
           <p className="animate-rise mt-7 max-w-xl text-lg leading-relaxed text-muted text-pretty" style={delay(200)}>
-            {person.pitch} Baserad i {person.location.replace(" · ", ", ")}.
+            {person.pitch}
+          </p>
+          <p className="animate-rise mt-4 flex items-center gap-2 text-sm text-muted" style={delay(220)}>
+            <Icon name="pin" width={16} height={16} className="text-cyan" />
+            {person.city}
           </p>
 
           <div className="animate-rise mt-9 flex flex-wrap items-center gap-3" style={delay(260)}>
