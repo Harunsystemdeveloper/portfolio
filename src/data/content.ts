@@ -340,7 +340,7 @@ export const skillGroups = [
   {
     title: "Verktyg",
     icon: "tool",
-    note: "Det jag använder varje dag för att leverera.",
+    note: "Verktyg och arbetssätt jag har använt i projekt och uppdrag.",
     skills: ["Python", "Odoo ERP", "Git", "LangGraph", "pytest", "Agile / Scrum"],
   },
 ] as const;
