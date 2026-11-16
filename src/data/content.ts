@@ -17,7 +17,7 @@ export const site = {
 export const person = {
   name: "Harun Ali",
   title: "Systemutvecklare – .NET, C#, Cloud & AI",
-  pitch: "Jag brinner för tech, utveckling och AI, och bygger smarta lösningar som gör verklig skillnad.",
+  pitch: "Jag utvecklar i C# och .NET och brinner för att omsätta ny teknik och AI i lösningar som fungerar i verkligheten.",
   status: "Söker tjänst inom systemutveckling",
   location: "Linköping · Östergötland",
   email: "Harunali2002@icloud.com",
@@ -29,10 +29,10 @@ export const person = {
 // Stora rubriken i hero. Delarna med "accent" färgas.
 export const heroHeadline: { text: string; accent?: boolean }[] = [
   { text: "Jag bygger " },
-  { text: ".NET-system", accent: true },
-  { text: ", molnplattformar och " },
-  { text: "AI-agenter", accent: true },
-  { text: " som gör verklig skillnad." },
+  { text: "system som gör skillnad", accent: true },
+  { text: " och utforskar " },
+  { text: "AI på djupet", accent: true },
+  { text: "." },
 ];
 
 export const heroStats = [
