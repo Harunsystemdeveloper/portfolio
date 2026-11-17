@@ -44,8 +44,9 @@ export const heroQuote = {
   role: "CTO, Honeycomb",
 };
 
-// "Utforskar just nu" – visas i Om mig-sektionen
-export const exploring = ["RAG med riktig evaluation", "Agents + tool use + MCP", "FastAPI & Docker", "Tracing, cost & guardrails"];
+// Vad du lär dig just nu – visas i Om mig-sektionen
+export const learningNow =
+  "Just nu fördjupar jag mig i RAG med riktig evaluation, agenter med tool use och MCP, och i hur man tar AI hela vägen till produktion med FastAPI, Docker, tracing och guardrails."
 
 export const navLinks = [
   { href: "#om-mig", label: "Om mig" },
@@ -63,57 +64,35 @@ export const about = [
 
 export type AboutFact = {
   label: string;
-  icon: string;
-  /** Kortets accentfärg */
-  accent: "gold" | "cyan" | "violet" | "green";
+  /** Huvudraden */
   title: string;
-  /** Rader under rubriken. "level" (1–3) visar en nivåmätare, t.ex. för språk. */
-  details: { name: string; value?: string; level?: number }[];
-  /** Kort kontextrad längst ner i kortet */
-  note?: string;
+  /** Kompletterande rader */
+  lines: string[];
 };
 
 export const aboutFacts: AboutFact[] = [
   {
     label: "Utbildning",
-    icon: "cap",
-    accent: "gold",
     title: "Systemutvecklare .NET",
-    details: [{ name: "TUC Yrkeshögskola" }, { name: "Aug 2024 – Maj 2026" }],
+    lines: ["TUC Yrkeshögskola, Aug 2024 – Maj 2026"],
   },
   {
     label: "Språk",
-    icon: "globe",
-    accent: "cyan",
-    title: "Svenska & engelska",
-    details: [
-      { name: "Svenska", value: "Flytande", level: 3 },
-      { name: "Engelska", value: "Flytande", level: 3 },
-      { name: "Spanska", value: "Grundläggande", level: 1 },
-    ],
-    note: "Arbetar obehindrat på både svenska och engelska.",
+    title: "Svenska och engelska, flytande",
+    lines: ["Spanska, grundläggande", "Arbetar obehindrat på båda språken."],
   },
   {
     label: "Intressen",
-    icon: "heart",
-    accent: "violet",
-    title: "Det som driver mig",
-    details: [
-      { name: "Sport & träning", value: "håller energin och disciplinen uppe" },
-      { name: "Entreprenörskap", value: "driver Rekryo som founder" },
-    ],
-    note: "Disciplin och uthållighet som jag tar med mig in i arbetet.",
+    title: "Sport, träning och entreprenörskap",
+    lines: ["Driver Rekryo som founder.", "Disciplin och uthållighet som jag tar med mig in i arbetet."],
   },
   {
     label: "Plats",
-    icon: "pin",
-    accent: "green",
-    title: person.location,
-    details: [
-      { name: "Öppen för att arbeta i hela Sverige" },
-      { name: "Både på plats och på distans" },
+    title: person.location.replace(" · ", ", "),
+    lines: [
+      "Öppen för att arbeta i hela Sverige, både på plats och på distans.",
+      "Söker tjänst inom systemutveckling, gärna med inslag av AI.",
     ],
-    note: "Söker tjänst inom systemutveckling, gärna med inslag av AI.",
   },
 ];
 
