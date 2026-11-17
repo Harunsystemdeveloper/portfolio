@@ -6,162 +6,83 @@ import PlatformMockup from "./mockups/PlatformMockup";
 import Icon from "./ui/Icon";
 import Reveal from "./ui/Reveal";
 
-const labelClass = "font-mono text-[11px] tracking-[0.15em] text-cyan uppercase";
+const labelClass = "text-sm font-medium text-fg";
 
 /**
- * Case study-kort. Projekt med riktig skärmdump visar bilden som en bred banner överst
- * med texten i två kolumner under; övriga visar en kodritad mockup bredvid texten.
+ * Ett projekt berättat som en kort historia. Projekt med riktig skärmdump visas som
+ * huvudprojekt med stor bild; övriga får text och kodritad visualisering sida vid sida.
  */
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
   const { image } = project;
-  const flip = index % 2 === 1;
-
-  const visual = (
-    <div className="relative isolate overflow-hidden border-b border-line bg-bg-soft/60 p-5 sm:p-8 lg:p-10">
-      <div
-        aria-hidden
-        className={`absolute -z-10 h-[30rem] w-[30rem] ${
-          project.mockup === "agent" ? "-top-40 -left-40 glow-cyan" : "-right-40 -bottom-40 glow-gold"
-        }`}
-      />
-      <div className="bg-grid absolute inset-0 -z-10 opacity-60" aria-hidden />
-      <div className="flex h-full items-center">
-        {image ? (
-          <figure className="mx-auto w-full max-w-5xl overflow-hidden rounded-xl border border-line-strong bg-surface-strong shadow-2xl shadow-black/30 transition-transform duration-700 group-hover/card:scale-[1.01]">
-            <figcaption className="flex items-center gap-3 border-b border-line px-4 py-2.5">
-              <span aria-hidden className="flex gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
-                <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-              </span>
-              <span className="flex-1 rounded-md bg-bg-soft px-3 py-0.5 text-center font-mono text-[10px] text-subtle">
-                {image.caption}
-              </span>
-            </figcaption>
-            {/* Mörk bild i mörkt tema, ljus i ljust tema (dolda bilder laddas inte) */}
-            <Image
-              src={image.src}
-              alt={`Skärmdump av ${image.caption}`}
-              width={image.width}
-              height={image.height}
-              sizes="(min-width: 1152px) 1024px, 100vw"
-              className={`block h-auto w-full ${image.srcLight ? "light:hidden" : ""}`}
-            />
-            {image.srcLight && (
-              <Image
-                src={image.srcLight}
-                alt={`Skärmdump av ${image.caption} i ljust tema`}
-                width={image.width}
-                height={image.height}
-                sizes="(min-width: 1152px) 1024px, 100vw"
-                className="hidden h-auto w-full light:block"
-              />
-            )}
-          </figure>
-        ) : project.mockup === "agent" ? (
-          <div className="w-full space-y-10">
-            <AiFocusGraph />
-            <AgentMockup />
-          </div>
-        ) : (
-          <PlatformMockup />
-        )}
-      </div>
-    </div>
-  );
 
   const header = (
     <div>
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-xs text-muted">
-        <span className="text-subtle">0{index + 1}</span>
-        {project.period && <span>{project.period}</span>}
-        {project.ongoing && (
-          <span className="flex items-center gap-1.5 rounded-full bg-green/15 px-2.5 py-0.5 text-green">
+      <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted">
+        {project.period && <span className="tabular-nums">{project.period}</span>}
+        {project.ongoing && !project.period?.includes("Pågående") && (
+          <span className="inline-flex items-center gap-1.5 text-green">
             <span className="h-1.5 w-1.5 rounded-full bg-green" />
             Pågående
           </span>
         )}
-      </div>
-      <h3 className="mt-4 font-display text-3xl font-semibold tracking-[-0.03em] sm:text-4xl">{project.title}</h3>
-      {project.role && <p className="mt-1 text-gold">{project.role}</p>}
-      <p className="mt-4 text-lg leading-snug text-fg/90 text-pretty">{project.tagline}</p>
+      </p>
+      <h3 className="mt-3 font-display text-4xl font-medium tracking-[-0.025em] sm:text-5xl">{project.title}</h3>
+      {project.role && <p className="mt-2 text-gold">{project.role}</p>}
+      <p className="accent mt-5 max-w-xl text-2xl leading-snug text-fg/90 sm:text-[1.7rem]">{project.tagline}</p>
     </div>
   );
 
-  const details = (
-    <dl className="space-y-6">
-      <div>
-        <dt className={labelClass}>{project.problemLabel ?? "Utmaningen"}</dt>
-        <dd className="mt-2 leading-relaxed text-muted text-pretty">{project.problem}</dd>
-      </div>
-      <div>
-        <dt className={labelClass}>{project.bulletsLabel ?? "Vad jag byggt"}</dt>
-        <dd className="mt-2">
-          <ul className="space-y-2">
-            {project.bullets.map((bullet) => (
-              <li key={bullet} className="flex gap-3 text-[15px] leading-relaxed text-muted">
-                <span aria-hidden className="mt-2.5 h-1 w-3 shrink-0 rounded-full bg-gold/70" />
-                {bullet}
-              </li>
-            ))}
-          </ul>
-        </dd>
-      </div>
-      <div>
-        <dt className={labelClass}>{project.outcomesLabel ?? "Resultat"}</dt>
-        <dd className="mt-3">
-          <ul className="grid gap-2">
-            {project.outcomes.map((outcome) => (
-              <li
-                key={outcome}
-                className="flex items-start gap-3 rounded-xl border border-line bg-bg-soft/50 px-3.5 py-2.5 text-sm font-medium"
-              >
-                <Icon name="check" width={16} height={16} className="mt-0.5 shrink-0 text-green" />
-                {outcome}
-              </li>
-            ))}
-          </ul>
-        </dd>
-      </div>
-    </dl>
+  const problem = (
+    <div>
+      <p className={labelClass}>{project.problemLabel ?? "Varför"}</p>
+      <p className="mt-2 leading-relaxed text-muted text-pretty">{project.problem}</p>
+    </div>
   );
 
-  const tags = (
-    <ul className="flex flex-wrap gap-1.5" aria-label="Teknik">
-      {project.tags.map((tag) => (
-        <li key={tag} className="chip">
-          {tag}
-        </li>
-      ))}
-    </ul>
+  const bullets = (
+    <div>
+      <p className={labelClass}>{project.bulletsLabel ?? "Vad jag har byggt"}</p>
+      <ul className="mt-3 space-y-3">
+        {project.bullets.map((bullet) => (
+          <li key={bullet} className="flex gap-3 leading-relaxed text-muted">
+            <span aria-hidden className="mt-[0.7em] h-px w-3 shrink-0 bg-gold/70" />
+            {bullet}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 
-  const links = (
-    <div className="border-t border-line pt-6">
-      <div className="flex flex-wrap gap-3">
-        {project.links.map((link, i) => {
-          const missing = isPlaceholder(link.href);
+  const outcomes = (
+    <div>
+      <p className={labelClass}>{project.outcomesLabel ?? "I korthet"}</p>
+      <ul className="mt-3 space-y-2">
+        {project.outcomes.map((outcome) => (
+          <li key={outcome} className="flex gap-2.5 leading-relaxed">
+            <Icon name="check" width={16} height={16} className="mt-1 shrink-0 text-gold" />
+            {outcome}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+
+  const footer = (
+    <div>
+      <p className="text-sm leading-relaxed text-subtle">{project.tags.join(" · ")}</p>
+      <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+        {project.links.map((link) => {
           const icon = link.label === "GitHub" ? "github" : "external";
-          if (missing) {
+          if (isPlaceholder(link.href)) {
             return (
-              <span
-                key={link.label}
-                className="btn cursor-not-allowed border border-dashed border-line-strong text-sm text-subtle"
-                title="Länken läggs till snart"
-              >
+              <span key={link.label} className="inline-flex items-center gap-2 text-sm text-subtle">
                 <Icon name={icon} width={16} height={16} />
-                {link.label} – kommer snart
+                {link.label} kommer snart
               </span>
             );
           }
           return (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`btn group text-sm ${i === 0 ? "btn-primary" : "btn-ghost"}`}
-            >
+            <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer" className="btn btn-primary group text-sm">
               <Icon name={icon} width={16} height={16} />
               {link.label}
               <span className="sr-only"> (öppnas i ny flik)</span>
@@ -169,42 +90,75 @@ export default function ProjectCard({ project, index }: { project: Project; inde
           );
         })}
       </div>
-      {project.linkNote && (
-        <p className="mt-4 flex items-start gap-2 text-sm leading-relaxed text-muted">
-          <span className="mt-0.5 shrink-0 rounded-full bg-gold/15 px-2 py-0.5 font-mono text-[10px] tracking-wider text-gold uppercase">
-            Beta
-          </span>
-          {project.linkNote}
-        </p>
-      )}
+      {project.linkNote && <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">{project.linkNote}</p>}
     </div>
   );
 
+  // Huvudprojekt: rubrik, stor bild och sedan berättelsen i två kolumner
   if (image) {
     return (
-      <Reveal as="article" className="card spot group/card overflow-hidden !rounded-[2rem]">
-        {visual}
-        <div className="grid gap-10 p-6 sm:p-10 lg:grid-cols-2 lg:gap-14">
-          <div className="flex flex-col gap-7">
-            {header}
-            {tags}
-            <div className="lg:mt-auto">{links}</div>
+      <Reveal as="article">
+        {header}
+        <figure className="group/bild relative mt-10 sm:mt-14">
+          <div aria-hidden className="glow-gold absolute -inset-x-10 -inset-y-16 -z-10 opacity-70" />
+          <div className="overflow-hidden rounded-2xl shadow-[var(--shadow)] ring-1 ring-line">
+            <Image
+              src={image.src}
+              alt={`Skärmdump av ${image.caption}`}
+              width={image.width}
+              height={image.height}
+              sizes="(min-width: 1152px) 1088px, 100vw"
+              className={`block h-auto w-full transition-transform duration-[1.2s] ease-out group-hover/bild:scale-[1.01] ${image.srcLight ? "light:hidden" : ""}`}
+            />
+            {image.srcLight && (
+              <Image
+                src={image.srcLight}
+                alt={`Skärmdump av ${image.caption} i ljust tema`}
+                width={image.width}
+                height={image.height}
+                sizes="(min-width: 1152px) 1088px, 100vw"
+                className="hidden h-auto w-full transition-transform duration-[1.2s] ease-out group-hover/bild:scale-[1.01] light:block"
+              />
+            )}
           </div>
-          {details}
+          <figcaption className="mt-3 text-sm text-subtle">{image.caption}</figcaption>
+        </figure>
+
+        <div className="mt-12 grid gap-12 md:grid-cols-2 md:gap-16">
+          <div className="space-y-8">
+            {problem}
+            {outcomes}
+          </div>
+          <div className="space-y-10">
+            {bullets}
+            {footer}
+          </div>
         </div>
       </Reveal>
     );
   }
 
+  // Övriga projekt: smalare text bredvid en större visualisering
   return (
-    <Reveal as="article" className="card spot group/card overflow-hidden !rounded-[2rem]">
-      <div className={`grid lg:grid-cols-2 lg:[&>*:first-child]:border-b-0 ${flip ? "lg:[&>*:first-child]:order-2" : ""}`}>
-        {visual}
-        <div className="flex flex-col p-6 sm:p-10">
-          {header}
-          <div className="mt-7">{details}</div>
-          <div className="mt-7">{tags}</div>
-          <div className="mt-8 lg:mt-auto lg:pt-8">{links}</div>
+    <Reveal as="article" className="grid gap-12 lg:grid-cols-12 lg:gap-10">
+      <div className={`space-y-9 lg:col-span-5 ${index % 2 ? "lg:order-2" : ""}`}>
+        {header}
+        {problem}
+        {bullets}
+        {outcomes}
+        {footer}
+      </div>
+      <div className="relative lg:col-span-7 lg:pt-6">
+        <div aria-hidden className="glow-cyan absolute inset-0 -z-10 opacity-60" />
+        <div className="space-y-12 lg:sticky lg:top-28">
+          {project.mockup === "agent" ? (
+            <>
+              <AiFocusGraph />
+              <AgentMockup />
+            </>
+          ) : (
+            <PlatformMockup />
+          )}
         </div>
       </div>
     </Reveal>

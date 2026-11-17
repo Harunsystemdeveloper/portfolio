@@ -227,40 +227,8 @@ export type Project = {
   linkNote?: string;
 };
 
-// "Pågående fördjupning" i CV:t
+// Rekryo först som huvudprojekt, sedan AI-fördjupningen
 export const projects: Project[] = [
-  {
-    title: "Applied AI Developer 2026",
-    role: "AI-fördjupning · fördjupningskurs",
-    period: "Sep 2026 – Pågående",
-    tagline: "Från AI-demo till produktion: RAG med riktig evaluation, agenter med MCP och production-skills.",
-    problemLabel: "Fokus",
-    problem:
-      "I prioritetsordning: 1) RAG med riktig evaluation, 2) agents + tool use + MCP, 3) production-skills – FastAPI, Docker, tracing, cost och guardrails.",
-    bulletsLabel: "Upplägg i tre faser",
-    bullets: [
-      "Fas 1 · Production RAG med evaluation (6–7 v): Document Q&A-system med hybrid search + reranking, citations, golden evaluation set (≥30 frågor), metrics för retrieval, faithfulness och answer relevancy samt enkel UI.",
-      "Fas 2 · Agents + tool use + MCP (5–6 v): en agent som använder flera verktyg, har egen MCP-server, loggar steg, mäter success rate och har human-in-the-loop.",
-      "Fas 3 · Production & observability (4 v): det bästa projektet görs production-ready med FastAPI, Docker, tracing + cost tracking, guardrails och CI med evaluation.",
-    ],
-    outcomesLabel: "Projekt",
-    outcomes: [
-      "production-rag-with-evals – RAG med hybrid search, citations och evals",
-      "agent-with-mcp-tools – agent med egen MCP-server och human-in-the-loop",
-    ],
-    tags: [
-      "Python",
-      "MCP-server-utveckling",
-      "LlamaIndex / LangChain",
-      "OpenAI · Anthropic · Azure OpenAI",
-      "Chroma → Qdrant / Azure AI Search",
-      "FastAPI",
-      "Docker",
-    ],
-    ongoing: true,
-    mockup: "agent",
-    links: [{ label: "GitHub", href: "[GITHUB-LÄNK]" }],
-  },
   {
     title: "Rekryo",
     role: "Founder & Lead Developer",
@@ -303,6 +271,38 @@ export const projects: Project[] = [
     },
     links: [{ label: "Besök", href: "https://rekryo.vercel.app/" }],
     linkNote: "Sidan är under pågående utveckling – vissa funktioner är inte helt färdiga än.",
+  },
+  {
+    title: "Applied AI Developer 2026",
+    role: "AI-fördjupning · fördjupningskurs",
+    period: "Sep 2026 – Pågående",
+    tagline: "Från AI-demo till produktion: RAG med riktig evaluation, agenter med MCP och production-skills.",
+    problemLabel: "Fokus",
+    problem:
+      "I prioritetsordning: 1) RAG med riktig evaluation, 2) agents + tool use + MCP, 3) production-skills – FastAPI, Docker, tracing, cost och guardrails.",
+    bulletsLabel: "Upplägg i tre faser",
+    bullets: [
+      "Fas 1 · Production RAG med evaluation (6–7 v): Document Q&A-system med hybrid search + reranking, citations, golden evaluation set (≥30 frågor), metrics för retrieval, faithfulness och answer relevancy samt enkel UI.",
+      "Fas 2 · Agents + tool use + MCP (5–6 v): en agent som använder flera verktyg, har egen MCP-server, loggar steg, mäter success rate och har human-in-the-loop.",
+      "Fas 3 · Production & observability (4 v): det bästa projektet görs production-ready med FastAPI, Docker, tracing + cost tracking, guardrails och CI med evaluation.",
+    ],
+    outcomesLabel: "Projekt",
+    outcomes: [
+      "production-rag-with-evals – RAG med hybrid search, citations och evals",
+      "agent-with-mcp-tools – agent med egen MCP-server och human-in-the-loop",
+    ],
+    tags: [
+      "Python",
+      "MCP-server-utveckling",
+      "LlamaIndex / LangChain",
+      "OpenAI · Anthropic · Azure OpenAI",
+      "Chroma → Qdrant / Azure AI Search",
+      "FastAPI",
+      "Docker",
+    ],
+    ongoing: true,
+    mockup: "agent",
+    links: [{ label: "GitHub", href: "[GITHUB-LÄNK]" }],
   },
 ];
 

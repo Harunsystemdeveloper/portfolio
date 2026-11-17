@@ -6,16 +6,16 @@ export default function Projects() {
   return (
     <Section
       id="projekt"
-      index="03"
-      eyebrow="Utvalda case"
+      eyebrow="Projekt"
       title={
         <>
-          Från idé till <span className="text-gradient">fungerande produkt</span>
+          Från idé till <span className="accent text-gold">fungerande produkt</span>
         </>
       }
-      lead="Egna projekt där jag tar idéer hela vägen från arkitektur till fungerande produkt."
+      lead="Egna projekt där jag tar idéer hela vägen från arkitektur till något som faktiskt körs."
+      className="pt-16 pb-20 sm:pt-24 sm:pb-32"
     >
-      <div className="space-y-8 sm:space-y-12">
+      <div className="space-y-24 sm:space-y-36">
         {projects.map((project, i) => (
           <ProjectCard key={project.title} project={project} index={i} />
         ))}
