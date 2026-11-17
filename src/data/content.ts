@@ -17,7 +17,7 @@ export const site = {
 export const person = {
   name: "Harun Ali",
   title: "Systemutvecklare – .NET, C#, Cloud & AI",
-  pitch: "Jag utvecklar i C# och .NET och brinner för att omsätta ny teknik och AI i lösningar som fungerar i verkligheten.",
+  pitch: "Jag jobbar med C# och .NET och tycker om att bygga lösningar som människor faktiskt har nytta av. Just nu fördjupar jag mig i AI.",
   status: "Söker tjänst inom systemutveckling",
   location: "Linköping · Östergötland",
   /** Kort platsangivelse i heron */
