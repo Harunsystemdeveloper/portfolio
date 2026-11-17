@@ -7,7 +7,7 @@ import Icon from "./ui/Icon";
 import Reveal from "./ui/Reveal";
 
 const inputClass =
-  "w-full rounded-xl border border-line bg-bg/60 px-4 py-3 text-fg placeholder:text-subtle transition focus:border-cyan focus:bg-bg focus:outline-none";
+  "w-full rounded-xl border border-transparent bg-bg/70 px-4 py-3 text-fg placeholder:text-subtle transition focus:border-gold/60 focus:bg-bg focus:outline-none";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -24,84 +24,73 @@ export default function Contact() {
   }
 
   return (
-    <section id="kontakt" aria-labelledby="kontakt-rubrik" className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-      <Reveal className="card ring-gradient relative isolate overflow-hidden !rounded-[2rem] p-6 sm:p-12 lg:p-16">
-        <div aria-hidden className="absolute -top-64 -left-56 -z-10 h-[36rem] w-[36rem] glow-gold" />
-        <div aria-hidden className="absolute -right-56 -bottom-64 -z-10 h-[36rem] w-[36rem] glow-cyan" />
+    <section id="kontakt" aria-labelledby="kontakt-rubrik" className="mx-auto max-w-6xl px-5 pt-16 pb-24 sm:px-8 sm:pt-24 sm:pb-32">
+      <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
+        <Reveal className="lg:col-span-7">
+          <p className="mb-4 text-sm text-gold">Kontakt</p>
+          <h2
+            id="kontakt-rubrik"
+            className="font-display text-[2.4rem] leading-[1.05] font-medium tracking-[-0.025em] text-balance sm:text-6xl"
+          >
+            Har du en roll där jag passar? <span className="accent text-gold">Låt oss prata.</span>
+          </h2>
+          <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
+            Söker du en hungrig systemutvecklare inom C# och .NET med ett brinnande intresse för AI? Hör av dig, jag svarar gärna.
+          </p>
 
-        <div className="grid gap-12 lg:grid-cols-5 lg:gap-16">
-          <div className="lg:col-span-3">
-            <p className="mb-5 flex items-center gap-3 font-mono text-xs tracking-[0.2em] text-cyan uppercase">
-              <span className="text-subtle">05</span>
-              <span aria-hidden className="h-px w-8 bg-cyan/50" />
-              Kontakt
-            </p>
-            <h2
-              id="kontakt-rubrik"
-              className="font-display text-4xl leading-[1.02] font-semibold tracking-[-0.03em] text-balance sm:text-6xl"
-            >
-              Har du en roll där jag passar? <span className="text-gradient">Låt oss prata.</span>
-            </h2>
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-muted">
-              Söker du en hungrig systemutvecklare inom C# och .NET med ett brinnande intresse för AI? Hör av dig, jag svarar gärna.
-            </p>
+          <a
+            href={`mailto:${person.email}`}
+            className="group mt-10 inline-flex max-w-full items-center gap-3 font-display text-2xl font-medium tracking-tight break-all sm:text-[2.1rem]"
+          >
+            <span className="link-underline pb-1">{person.email}</span>
+            <Icon
+              name="arrow"
+              width={24}
+              height={24}
+              className="shrink-0 -rotate-45 text-gold transition-transform duration-500 group-hover:rotate-0"
+            />
+          </a>
 
-            <a
-              href={`mailto:${person.email}`}
-              className="group mt-10 inline-flex max-w-full items-center gap-3 font-display text-2xl font-medium tracking-tight break-all sm:text-4xl"
-            >
-              <span className="bg-gradient-to-r from-gold to-cyan bg-[length:0%_2px] bg-left-bottom bg-no-repeat pb-1 transition-[background-size] duration-500 group-hover:bg-[length:100%_2px]">
-                {person.email}
-              </span>
-              <Icon
-                name="arrow"
-                width={28}
-                height={28}
-                className="shrink-0 -rotate-45 text-gold transition-transform group-hover:rotate-0"
-              />
+          <a
+            href={person.phone.href}
+            className="mt-4 flex w-fit items-center gap-3 text-xl text-muted transition hover:text-fg"
+          >
+            <Icon name="phone" width={18} height={18} className="text-gold" />
+            <span>
+              <span className="sr-only">Ring </span>
+              {person.phone.display}
+            </span>
+          </a>
+
+          <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+            <CopyEmail email={person.email} />
+            <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="link-underline inline-flex items-center gap-2 pb-0.5">
+              <Icon name="linkedin" width={16} height={16} />
+              LinkedIn
             </a>
-
-            <a
-              href={person.phone.href}
-              className="group mt-4 flex w-fit items-center gap-3 font-display text-xl font-medium tracking-tight text-muted transition hover:text-fg sm:text-2xl"
-            >
-              <span className="grid h-10 w-10 place-items-center rounded-full border border-line text-cyan transition group-hover:border-cyan">
-                <Icon name="phone" width={18} height={18} />
-              </span>
-              <span>
-                <span className="sr-only">Ring </span>
-                {person.phone.display}
-              </span>
+            <a href={person.github} target="_blank" rel="noopener noreferrer" className="link-underline inline-flex items-center gap-2 pb-0.5">
+              <Icon name="github" width={16} height={16} />
+              GitHub
             </a>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <CopyEmail email={person.email} />
-              <a href={person.linkedin} target="_blank" rel="noopener noreferrer" className="btn btn-ghost text-sm">
-                <Icon name="linkedin" width={16} height={16} />
-                LinkedIn
-              </a>
-              <a href={person.github} target="_blank" rel="noopener noreferrer" className="btn btn-ghost text-sm">
-                <Icon name="github" width={16} height={16} />
-                GitHub
-              </a>
-            </div>
-
-            <p className="mt-10 flex items-center gap-2 text-sm text-muted">
-              <Icon name="pin" width={16} height={16} className="text-cyan" />
-              {person.location}
-            </p>
           </div>
 
-          <form onSubmit={onSubmit} className="space-y-4 lg:col-span-2" aria-label="Kontaktformulär">
-            <p className="font-display text-xl font-semibold">Eller skicka ett meddelande</p>
+          <p className="mt-10 flex items-center gap-2 text-sm text-muted">
+            <Icon name="pin" width={15} height={15} className="text-gold" />
+            {person.location}
+          </p>
+        </Reveal>
+
+        <Reveal delay={0.1} className="lg:col-span-5 lg:pt-10">
+          <form onSubmit={onSubmit} className="card space-y-4 p-6 sm:p-8" aria-label="Kontaktformulär">
+            <p className="font-display text-xl font-medium">Eller skriv ett meddelande</p>
             <div>
-              <label htmlFor="namn" className="mb-1.5 block text-sm font-medium">
+              <label htmlFor="namn" className="mb-1.5 block text-sm text-muted">
                 Namn
               </label>
               <input id="namn" name="namn" required autoComplete="name" className={inputClass} placeholder="Ditt namn" />
             </div>
             <div>
-              <label htmlFor="epost" className="mb-1.5 block text-sm font-medium">
+              <label htmlFor="epost" className="mb-1.5 block text-sm text-muted">
                 E-post
               </label>
               <input
@@ -115,7 +104,7 @@ export default function Contact() {
               />
             </div>
             <div>
-              <label htmlFor="meddelande" className="mb-1.5 block text-sm font-medium">
+              <label htmlFor="meddelande" className="mb-1.5 block text-sm text-muted">
                 Meddelande
               </label>
               <textarea
@@ -135,8 +124,8 @@ export default function Contact() {
               {sent ? "Ditt e-postprogram öppnas med meddelandet ifyllt." : "Formuläret öppnar ditt e-postprogram."}
             </p>
           </form>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </section>
   );
 }

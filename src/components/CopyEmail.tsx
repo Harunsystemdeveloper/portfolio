@@ -16,7 +16,7 @@ export default function CopyEmail({ email }: { email: string }) {
   }
 
   return (
-    <button type="button" onClick={copy} className="btn btn-ghost text-sm">
+    <button type="button" onClick={copy} className="link-underline inline-flex items-center gap-2 pb-0.5">
       <Icon name={copied ? "check" : "copy"} width={16} height={16} className={copied ? "text-green" : ""} />
       <span aria-live="polite">{copied ? "Kopierad!" : "Kopiera adress"}</span>
     </button>
