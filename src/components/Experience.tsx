@@ -7,75 +7,58 @@ export default function Experience() {
   return (
     <Section
       id="erfarenhet"
-      index="02"
       eyebrow="Erfarenhet"
       title={
         <>
-          Från fullstack till <span className="text-gradient">moln och AI</span>
+          Från fullstack till <span className="accent text-gold">moln och AI</span>
         </>
       }
       lead="Varje roll har gett mig nya verktyg, nya perspektiv och mer erfarenhet av att leverera i riktiga verksamheter. Klicka på en roll för detaljerna."
+      className="py-16 sm:py-28"
     >
-      <ol className="relative">
-        {/* Tidslinjen: en svag bas och en färgad linje som fylls i när man scrollar */}
-        <span aria-hidden className="absolute top-2 bottom-2 left-[7px] w-px bg-line md:left-[calc(12rem+7px)]" />
-        <span
-          aria-hidden
-          className="timeline-fill absolute top-2 bottom-2 left-[7px] w-px bg-gradient-to-b from-gold via-cyan to-cyan/0 md:left-[calc(12rem+7px)]"
-        />
-
+      <ol>
         {experiences.map((job, i) => (
-          <Reveal as="li" key={`${job.company}-${job.role}`} delay={0.04 * i} className="relative pb-6 pl-9 last:pb-0 md:grid md:grid-cols-[12rem_1fr] md:pl-0">
-            <div className="mb-3 md:mb-0 md:pt-6 md:pr-10 md:text-right">
-              <p className="font-mono text-xs tracking-wide text-muted">{job.period}</p>
-              {job.location && <p className="mt-1 font-mono text-xs text-subtle">{job.location}</p>}
-            </div>
+          <Reveal
+            as="li"
+            key={`${job.company}-${job.role}`}
+            delay={Math.min(i, 3) * 0.05}
+            className="border-t border-line last:border-b"
+          >
+            <details className="group" open={job.current}>
+              <summary className="grid cursor-pointer gap-x-10 gap-y-2 py-7 transition-colors md:grid-cols-[11rem_1fr] md:py-9">
+                <div className="text-sm text-muted tabular-nums">
+                  <p className={job.current ? "text-fg" : ""}>{job.period}</p>
+                  {job.location && <p className="mt-0.5 text-subtle">{job.location}</p>}
+                </div>
 
-            <span
-              aria-hidden
-              className={`absolute top-1.5 left-0 grid h-[15px] w-[15px] place-items-center rounded-full border md:top-7 md:left-[12rem] ${
-                job.current ? "border-green bg-green/20" : "border-line-strong bg-bg"
-              }`}
-            >
-              <span className={`h-1.5 w-1.5 rounded-full ${job.current ? "bg-green" : "bg-subtle"}`} />
-              {job.current && (
-                <span className="motion-pulse absolute inset-0 animate-ping rounded-full border border-green opacity-60" />
-              )}
-            </span>
-
-            <details className="card spot group md:ml-10" open={job.current}>
-              <summary className="cursor-pointer rounded-[inherit] p-5 sm:p-7">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="min-w-0">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <h3 className="font-display text-xl font-semibold tracking-tight sm:text-2xl">{job.role}</h3>
-                      {job.current && (
-                        <span className="rounded-full bg-green/15 px-2.5 py-0.5 font-mono text-[11px] text-green">Nu</span>
-                      )}
-                    </div>
-                    <p className="mt-1 text-gold">
-                      {job.company}
-                      {job.context && <span className="text-muted"> · {job.context}</span>}
-                    </p>
-                    <p className="mt-4 max-w-2xl leading-relaxed text-fg/90 text-pretty">{job.highlight}</p>
-                    <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Tekniker och områden">
-                      {job.tags.map((tag) => (
-                        <li key={tag} className="chip">
-                          {tag}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line text-muted transition group-open:rotate-45 group-hover:border-cyan group-hover:text-cyan">
-                    <Icon name="plus" width={16} height={16} />
-                    <span className="sr-only">Visa detaljer</span>
+                <div className="min-w-0">
+                  <h3 className="font-display text-xl leading-snug font-medium tracking-tight transition-colors group-hover:text-gold sm:text-[1.6rem]">
+                    {job.role}
+                    {job.current && (
+                      <span className="ml-3 inline-flex translate-y-[-3px] items-center gap-1.5 align-middle text-xs font-normal text-green">
+                        <span className="h-1.5 w-1.5 rounded-full bg-green" />
+                        Nu
+                      </span>
+                    )}
+                  </h3>
+                  <p className="mt-1 text-muted">
+                    <span className="text-fg/90">{job.company}</span>
+                    {job.context && <span> · {job.context}</span>}
+                  </p>
+                  <p className="mt-4 max-w-2xl leading-relaxed text-pretty">{job.highlight}</p>
+                  <p className="mt-3 text-sm text-subtle">{job.tags.join(" · ")}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm text-gold">
+                    <span className="group-open:hidden">Läs mer</span>
+                    <span className="hidden group-open:inline">Visa mindre</span>
+                    <Icon name="arrow" width={14} height={14} className="rotate-90 transition-transform group-open:-rotate-90" />
                   </span>
                 </div>
               </summary>
-              <ul className="space-y-2.5 border-t border-line px-5 py-5 sm:px-7">
+
+              <ul className="space-y-3 pb-9 md:ml-[calc(11rem+2.5rem)]">
                 {job.bullets.map((bullet) => (
-                  <li key={bullet} className="flex gap-3 text-[15px] leading-relaxed text-muted">
-                    <span aria-hidden className="mt-2.5 h-1 w-3 shrink-0 rounded-full bg-cyan/60" />
+                  <li key={bullet} className="flex max-w-2xl gap-3 leading-relaxed text-muted">
+                    <span aria-hidden className="mt-[0.7em] h-px w-3 shrink-0 bg-gold/70" />
                     {bullet}
                   </li>
                 ))}
