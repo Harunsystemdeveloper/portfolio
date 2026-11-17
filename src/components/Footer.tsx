@@ -10,7 +10,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="mx-auto max-w-6xl px-4 pb-10 sm:px-6">
+    <footer className="mx-auto max-w-6xl px-5 pb-10 sm:px-8">
       <div className="flex flex-col gap-8 border-t border-line pt-10 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="font-display text-2xl font-semibold tracking-tight">{person.name}</p>
@@ -28,7 +28,7 @@ export default function Footer() {
                     aria-label={s.label}
                     target={external ? "_blank" : undefined}
                     rel={external ? "noopener noreferrer" : undefined}
-                    className="grid h-10 w-10 place-items-center rounded-full border border-line text-muted transition hover:-translate-y-0.5 hover:border-cyan hover:text-cyan"
+                    className="grid h-10 w-10 place-items-center rounded-full border border-line text-muted transition hover:-translate-y-0.5 hover:border-gold hover:text-gold"
                   >
                     <Icon name={s.icon} width={18} height={18} />
                   </a>
@@ -38,7 +38,7 @@ export default function Footer() {
           </ul>
           <p className="flex items-center gap-4 text-sm text-subtle">
             © <CurrentYear /> {person.name}
-            <a href="#top" className="font-mono text-xs text-muted transition hover:text-cyan">
+            <a href="#top" className="text-xs text-muted transition hover:text-gold">
               Till toppen ↑
             </a>
           </p>

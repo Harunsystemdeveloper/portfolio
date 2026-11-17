@@ -65,19 +65,16 @@ export default function Navbar() {
       <div
         className={`relative mx-auto max-w-6xl overflow-hidden rounded-2xl border transition-[background-color,border-color,box-shadow] duration-500 ${
           scrolled || open
-            ? "border-line bg-bg/75 shadow-lg shadow-black/10 backdrop-blur-xl"
+            ? "border-line bg-bg/80 shadow-[var(--shadow)] backdrop-blur-xl"
             : "border-transparent bg-transparent"
         }`}
       >
         <nav aria-label="Huvudmeny" className="flex h-14 items-center justify-between pr-2 pl-3 sm:pr-3">
           <a href="#top" className="group flex items-center gap-2.5 font-display font-semibold" onClick={() => setOpen(false)}>
-            <span className="relative grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-gold to-cyan text-sm font-bold text-on-accent transition-transform duration-500 group-hover:rotate-[8deg]">
+            <span className="relative grid h-9 w-9 place-items-center rounded-full bg-gold text-sm font-bold text-on-accent transition-transform duration-500 group-hover:-rotate-6">
               {initials}
             </span>
-            <span className="hidden flex-col leading-tight sm:flex">
-              <span className="text-[15px]">{person.name}</span>
-              <span className="font-mono text-[10px] font-normal tracking-wider text-subtle uppercase">.NET · Cloud · AI</span>
-            </span>
+            <span className="hidden text-[15px] font-medium sm:inline">{person.name}</span>
           </a>
 
           <ul className="hidden items-center gap-0.5 md:flex">
@@ -92,7 +89,6 @@ export default function Navbar() {
                       isActive ? "bg-surface text-fg" : "text-muted hover:text-fg"
                     }`}
                   >
-                    {isActive && <span aria-hidden className="absolute top-1/2 left-1.5 h-1 w-1 -translate-y-1/2 rounded-full bg-cyan" />}
                     {link.label}
                   </a>
                 </li>
@@ -124,14 +120,13 @@ export default function Navbar() {
 
         <div id="mobilmeny" hidden={!open} className="border-t border-line md:hidden">
           <ul className="flex flex-col p-2">
-            {navLinks.map((link, i) => (
+            {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className="flex items-baseline gap-3 rounded-xl px-3 py-3 font-display text-xl transition hover:bg-surface hover:text-cyan"
+                  className="block rounded-xl px-3 py-3 font-display text-xl transition hover:bg-surface hover:text-gold"
                 >
-                  <span className="font-mono text-xs text-subtle">0{i + 1}</span>
                   {link.label}
                 </a>
               </li>
@@ -142,7 +137,7 @@ export default function Navbar() {
         <span
           ref={progress}
           aria-hidden
-          className={`absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-gradient-to-r from-gold to-cyan transition-opacity ${
+          className={`absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-gold transition-opacity ${
             scrolled ? "opacity-100" : "opacity-0"
           }`}
         />

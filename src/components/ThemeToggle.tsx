@@ -37,7 +37,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label={isLight ? "Byt till mörkt läge" : "Byt till ljust läge"}
       title={isLight ? "Mörkt läge" : "Ljust läge"}
-      className="group grid h-10 w-10 place-items-center rounded-full border border-line text-muted transition hover:border-cyan hover:text-cyan"
+      className="group grid h-10 w-10 place-items-center rounded-full border border-line text-muted transition hover:border-gold hover:text-gold"
     >
       <span className="transition-transform duration-500 group-hover:rotate-45">
         {isLight ? (

@@ -1,12 +1,20 @@
 import type { ReactNode } from "react";
 import SectionHeading from "./SectionHeading";
 
-type Props = { id: string; index: string; eyebrow: string; title: ReactNode; lead?: string; children: ReactNode };
+type Props = {
+  id: string;
+  eyebrow: string;
+  title: ReactNode;
+  lead?: string;
+  /** Extra klasser på sektionen, t.ex. för att variera luften mellan sektioner */
+  className?: string;
+  children: ReactNode;
+};
 
-export default function Section({ id, index, eyebrow, title, lead, children }: Props) {
+export default function Section({ id, eyebrow, title, lead, className = "py-16 sm:py-24", children }: Props) {
   return (
-    <section id={id} aria-labelledby={`${id}-rubrik`} className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-      <SectionHeading id={`${id}-rubrik`} index={index} eyebrow={eyebrow} title={title} lead={lead} />
+    <section id={id} aria-labelledby={`${id}-rubrik`} className={`mx-auto max-w-6xl px-5 sm:px-8 ${className}`}>
+      <SectionHeading id={`${id}-rubrik`} eyebrow={eyebrow} title={title} lead={lead} />
       {children}
     </section>
   );

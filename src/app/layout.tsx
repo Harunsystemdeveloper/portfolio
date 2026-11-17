@@ -1,14 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { isPlaceholder, person, site } from "@/data/content";
 import Background from "@/components/ui/Background";
 import MotionGate from "@/components/ui/MotionGate";
 import RevealRoot from "@/components/ui/RevealRoot";
-import Spotlight from "@/components/ui/Spotlight";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-geist", subsets: ["latin"], display: "swap" });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"], display: "swap" });
+// Kursiv serif för enstaka accentord i rubrikerna
+const serif = Instrument_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
+});
 const display = Bricolage_Grotesque({
   variable: "--font-display",
   subsets: ["latin"],
@@ -40,8 +47,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#05070f" },
-    { media: "(prefers-color-scheme: light)", color: "#f7f6f2" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f0e0c" },
+    { media: "(prefers-color-scheme: light)", color: "#f6f1e8" },
   ],
 };
 
@@ -53,7 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="sv"
-      className={`${geist.variable} ${geistMono.variable} ${display.variable} antialiased`}
+      className={`${geist.variable} ${geistMono.variable} ${display.variable} ${serif.variable} antialiased`}
       suppressHydrationWarning
     >
       <head>
@@ -70,7 +77,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         {children}
         <RevealRoot />
         <MotionGate />
-        <Spotlight />
       </body>
     </html>
   );

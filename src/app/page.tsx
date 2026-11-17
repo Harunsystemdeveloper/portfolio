@@ -15,10 +15,10 @@ export default function Home() {
       <Navbar />
       <main id="main">
         <Hero />
-        <Motto text={mottos.afterHero} />
+        <Motto text={mottos.afterHero} align="right" />
         <About />
         <Experience />
-        <Motto text={mottos.afterExperience} />
+        <Motto text={mottos.afterExperience} align="left" />
         <Projects />
         <Motto text={mottos.afterProjects} />
         <Skills />
